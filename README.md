@@ -33,6 +33,7 @@ Github daily challenge support application
 
 > 머신러닝
 + 깃헙 or 프로그래머 or MBTI 관련 빅데이터로 각 유저에 맞는 motivation 문구 전달
++ 프로그래밍 언어 관련 데이터 있으면 좋겠다
 + 참고링크: https://www.kaggle.com/sonukumari47/students-performance-in-exams
 + 참고링크: https://www.kaggle.com/kwadwoofosu/predict-test-scores-of-students
 
