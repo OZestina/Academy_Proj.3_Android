@@ -16,6 +16,10 @@ Github daily challenge support application
 2. 일정별: 기한(1주, 30일, 1Q, 1H, 1년) & 무기한(누적)
 
 
+> 앱 내 소셜 기능
+1. 좋아요 & (계정) 팔로우
+
+
 > 깃허브 constribution graph art
 + 자신의 아트 공유 & 인기투표
 + 아트 시안 제공
