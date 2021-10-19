@@ -1,16 +1,16 @@
-package com.app.gitsin.ui.dashboard;
+package com.app.gitsin.ui.guild;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class DashboardViewModel extends ViewModel {
+public class GuildViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public DashboardViewModel() {
+    public GuildViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
+        mText.setValue("This is guild fragment");
     }
 
     public LiveData<String> getText() {

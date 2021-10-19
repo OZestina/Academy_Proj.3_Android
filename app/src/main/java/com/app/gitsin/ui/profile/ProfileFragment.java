@@ -1,4 +1,4 @@
-package com.app.gitsin.ui.test2;
+package com.app.gitsin.ui.profile;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.app.gitsin.R;
 
-public class Test2Fragment extends Fragment {
+public class ProfileFragment extends Fragment {
 
-    private Test2ViewModel test2ViewModel;
+    private ProfileViewModel profileViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        test2ViewModel =
-                new ViewModelProvider(this).get(Test2ViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        test2ViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        profileViewModel =
+                new ViewModelProvider(this).get(ProfileViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_profile, container, false);
+        final TextView textView = root.findViewById(R.id.text_profile);
+        profileViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

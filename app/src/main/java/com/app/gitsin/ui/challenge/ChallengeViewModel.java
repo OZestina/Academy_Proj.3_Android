@@ -1,16 +1,16 @@
-package com.app.gitsin.ui.notifications;
+package com.app.gitsin.ui.challenge;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class NotificationsViewModel extends ViewModel {
+public class ChallengeViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public NotificationsViewModel() {
+    public ChallengeViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+        mText.setValue("This is challenge fragment");
     }
 
     public LiveData<String> getText() {

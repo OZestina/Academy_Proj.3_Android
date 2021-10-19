@@ -1,16 +1,16 @@
-package com.app.gitsin.ui.test1;
+package com.app.gitsin.ui.profile;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class Test1ViewModel extends ViewModel {
+public class ProfileViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public Test1ViewModel() {
+    public ProfileViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is test1 fragment");
+        mText.setValue("This is profile fragment");
     }
 
     public LiveData<String> getText() {

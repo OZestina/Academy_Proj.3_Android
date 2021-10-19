@@ -1,16 +1,16 @@
-package com.app.gitsin.ui.test2;
+package com.app.gitsin.ui.hof;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class Test2ViewModel extends ViewModel {
+public class HofViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public Test2ViewModel() {
+    public HofViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
+        mText.setValue("This is hof fragment");
     }
 
     public LiveData<String> getText() {

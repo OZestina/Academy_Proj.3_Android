@@ -1,4 +1,4 @@
-package com.app.gitsin.ui.test1;
+package com.app.gitsin.ui.guild;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.app.gitsin.R;
 
-public class Test1Fragment extends Fragment {
+public class GuildFragment extends Fragment {
 
-    private Test1ViewModel test1ViewModel;
+    private GuildViewModel guildViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        test1ViewModel =
-                new ViewModelProvider(this).get(Test1ViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_test1, container, false);
-        final TextView textView = root.findViewById(R.id.text_test1);
-        test1ViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        guildViewModel =
+                new ViewModelProvider(this).get(GuildViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_guild, container, false);
+        final TextView textView = root.findViewById(R.id.text_guild);
+        guildViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
