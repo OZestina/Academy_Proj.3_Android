@@ -48,6 +48,25 @@ public class MainActivity extends AppCompatActivity {
         tabHost.addTab(tabSpec4);
         tabHost.addTab(tabSpec5);
 
+//        Button b1 = songView.findViewById(R.id.tab2Button1);
+//        ImageView i1 = songView.findViewById(R.id.tab2Image1);
+//        b1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                i1.setImageResource(R.drawable.song2);
+//            }
+//        });
+//
+//        Button b2 = artistView.findViewById(R.id.tab2Button2);
+//        ImageView i2 = artistView.findViewById(R.id.tab2Image2);
+//        TextView t2 = artistView.findViewById(R.id.tab2Text1);
+//        b2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                i2.setImageResource(R.drawable.joy2);
+//                t2.setText("안녕 (Hello)");
+//            }
+//        });
 
     }
 }
