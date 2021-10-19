@@ -1,17 +1,17 @@
-com/app/gitsin/BuildConfig.java
- com.app.gitsin.BuildConfig
-com/app/gitsin/MainActivity.java
- com.app.gitsin.MainActivity
- com.app.gitsin.MainActivity$1
 com/app/gitsin/ChaActivity.java
  com.app.gitsin.ChaActivity
  com.app.gitsin.ChaActivity$1
+com/app/gitsin/MainActivity.java
+ com.app.gitsin.MainActivity
+ com.app.gitsin.MainActivity$1
 com/app/gitsin/GuildActivity.java
  com.app.gitsin.GuildActivity
  com.app.gitsin.GuildActivity$1
 com/app/gitsin/FriendsActivity.java
  com.app.gitsin.FriendsActivity
  com.app.gitsin.FriendsActivity$1
+com/app/gitsin/BuildConfig.java
+ com.app.gitsin.BuildConfig
 com/app/gitsin/HoFActivity.java
  com.app.gitsin.HoFActivity
  com.app.gitsin.HoFActivity$1
