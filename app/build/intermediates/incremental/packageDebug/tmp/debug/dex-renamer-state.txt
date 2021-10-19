@@ -1,0 +1,4 @@
+#Tue Oct 19 20:51:46 KST 2021
+base.0=/Users/hangnew/Desktop/android_project/GitSin/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
