@@ -1,5 +1,9 @@
 # Academy_project_3
-깃신(Gitsin)_Github daily challenge support application
+깃신(Gitsin)_Github daily challenge support application  
+
+
+https://cafe.daum.net/bigmega/pe7j/5463  
+https://www.notion.so/90895e7c82614675ba1aab7de42c93c3  
 
 
 **기획내용**
