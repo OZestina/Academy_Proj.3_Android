@@ -20,7 +20,7 @@
             <FrameLayout
                 android:id="@android:id/tabcontent"
                 android:layout_width="match_parent"
-                android:layout_height="600dp">
+                android:layout_height="550dp">
                 <LinearLayout
                     android:id="@+id/tab1"
                     android:orientation="horizontal"
