@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">Gitsin</string>
-    <string name="title_activity_main2">MainActivity</string>
-    <string name="title_profile">Profile</string>
-    <string name="title_hof">HoF</string>
-    <string name="title_challenge">Challenge</string>
-    <string name="title_guild">Guild</string>
-    <string name="title_friends">Friends</string>
-</resources>
