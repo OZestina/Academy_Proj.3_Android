@@ -24,27 +24,52 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="참여하고 있는 챌린지" />
+            android:text="나의 챌린지"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:textSize="18dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="152dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="개인전"
+                android:textSize="15dp"
+                android:padding="5dp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="단체전"
+                android:textSize="15dp"
+                android:padding="5dp"
+                android:gravity="center"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="133dp"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_launcher_background"
+                app:srcCompat="@drawable/cha_personal"
                 tools:ignore="VectorDrawableCompat" />
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_launcher_background"
+                app:srcCompat="@drawable/cha_group_default"
                 tools:ignore="VectorDrawableCompat" />
         </LinearLayout>
 
@@ -52,36 +77,78 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:padding="10dp"
             android:text="챌린지 리스트" />
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:orientation="horizontal"
-            android:layout_gravity="right">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
 
-            <CheckBox
-                android:id="@+id/checkBox"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/chaName"
+                android:layout_width="95dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="단체" />
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="챌린지명"
+                android:textSize="16sp" />
 
-            <CheckBox
-                android:id="@+id/checkBox2"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/chaCategory"
+                android:layout_width="65dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="개인" />
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="항목"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/chaStartDate"
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="시작일"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/chaPart"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="인원"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/chaBtn"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="참여"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
 
-            <ListView
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent">
+
+                <ListView
+                    android:id="@+id/chaListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp" />
+
+            </LinearLayout>
         </ScrollView>
 
     </LinearLayout>

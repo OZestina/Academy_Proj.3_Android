@@ -18,16 +18,14 @@ com/app/gitsin/Sign.java
  com.app.gitsin.Sign$4
  com.app.gitsin.Sign$4$1
  com.app.gitsin.Sign$4$2
+com/app/gitsin/StreakCrawling.java
+ com.app.gitsin.StreakCrawling
+ com.app.gitsin.StreakCrawling$1
+com/app/gitsin/ChaAdapter.java
+ com.app.gitsin.ChaAdapter
+ com.app.gitsin.ChaAdapter$1
 com/app/gitsin/GuildActivity.java
  com.app.gitsin.GuildActivity
- com.app.gitsin.GuildActivity$1
-com/app/gitsin/User.java
- com.app.gitsin.User
-com/app/gitsin/FriendsActivity.java
- com.app.gitsin.FriendsActivity
- com.app.gitsin.FriendsActivity$1
-com/app/gitsin/BuildConfig.java
- com.app.gitsin.BuildConfig
 com/app/gitsin/HoFActivity.java
  com.app.gitsin.HoFActivity
  com.app.gitsin.HoFActivity$1
@@ -35,3 +33,11 @@ com/app/gitsin/HoFListItem.java
  com.app.gitsin.HoFListItem
 com/app/gitsin/HoFAdapter.java
  com.app.gitsin.HoFAdapter
+com/app/gitsin/User.java
+ com.app.gitsin.User
+com/app/gitsin/FriendsActivity.java
+ com.app.gitsin.FriendsActivity
+com/app/gitsin/BuildConfig.java
+ com.app.gitsin.BuildConfig
+com/app/gitsin/ChaListItem.java
+ com.app.gitsin.ChaListItem

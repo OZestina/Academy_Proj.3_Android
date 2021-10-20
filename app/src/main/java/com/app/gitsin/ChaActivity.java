@@ -7,13 +7,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class ChaActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -22,13 +26,42 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        // 파이어베이스 연동 테스트
-        testDBConnect();
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cha);
 
+        // 파이어베이스 연동 테스트
+        //testDBConnect();
+
+        //크롤링 테스트
+        //StreakCrawling sc = new StreakCrawling("ozestina");
+        //버튼 없앴음 주의
+//        Button crawling = findViewById(R.id.chaBtnCrawl);
+//        crawling.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.d("크롤", sc.getStreakCheckStart());
+//                Log.d("크롤", Integer.toString(sc.getMaxStreak()));
+//                Log.d("크롤", Integer.toString(sc.getStreakToday()));
+//                Log.d("크롤", Integer.toString(sc.getTodayCount()));
+//            }
+//        });
+
+        // (일단) 데이터 정적 추가 -> DB에서 읽어와야 함
+        ChaListItem cha1 = new ChaListItem("호드", "단체전", "2021-10-24", "8/10");
+        ChaListItem cha2 = new ChaListItem("얼라이언스","단체전", "2021-10-25", "2/10");
+        ChaListItem cha3 = new ChaListItem("와우", "개인전", "2021-10-23", "1/2");
+
+        ArrayList<ChaListItem> data = new ArrayList<>();
+        data.add(cha1);
+        data.add(cha2);
+        data.add(cha3);
+
+        ListView listView = findViewById(R.id.chaListView);
+        ChaAdapter adapter = new ChaAdapter(data);
+        listView.setAdapter(adapter);
+
+
+        //하단 메뉴
         b1 = findViewById(R.id.menu3Pro);
         b2 = findViewById(R.id.menu3Hof);
         b3 = findViewById(R.id.menu3Challenge);
@@ -39,7 +72,6 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
         b3.setOnClickListener(this);
         b4.setOnClickListener(this);
         b5.setOnClickListener(this);
-
     }
 
     public void testDBConnect() {
