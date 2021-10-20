@@ -1,7 +1,3 @@
-com/app/gitsin/User.java
- com.app.gitsin.User
-com/app/gitsin/BuildConfig.java
- com.app.gitsin.BuildConfig
 com/app/gitsin/Login.java
  com.app.gitsin.Login
  com.app.gitsin.Login$1
@@ -25,9 +21,17 @@ com/app/gitsin/Sign.java
 com/app/gitsin/GuildActivity.java
  com.app.gitsin.GuildActivity
  com.app.gitsin.GuildActivity$1
+com/app/gitsin/User.java
+ com.app.gitsin.User
 com/app/gitsin/FriendsActivity.java
  com.app.gitsin.FriendsActivity
  com.app.gitsin.FriendsActivity$1
+com/app/gitsin/BuildConfig.java
+ com.app.gitsin.BuildConfig
 com/app/gitsin/HoFActivity.java
  com.app.gitsin.HoFActivity
  com.app.gitsin.HoFActivity$1
+com/app/gitsin/HoFListItem.java
+ com.app.gitsin.HoFListItem
+com/app/gitsin/HoFAdapter.java
+ com.app.gitsin.HoFAdapter

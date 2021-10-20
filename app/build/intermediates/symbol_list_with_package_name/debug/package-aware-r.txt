@@ -1167,6 +1167,7 @@ color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color lightgrey
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -1824,6 +1825,12 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable hof_01
+drawable hof_02
+drawable hof_03
+drawable hof_04
+drawable hof_05
+drawable hof_06
 drawable ic_clock_black_24dp
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
@@ -1982,6 +1989,8 @@ id center_horizontal
 id center_vertical
 id chain
 id chains
+id checkBox
+id checkBox2
 id checkbox
 id checked
 id chip
@@ -2078,6 +2087,12 @@ id groups
 id guideline
 id header_title
 id hideable
+id hofAchBar
+id hofAchCount
+id hofAchDetail
+id hofAchImage
+id hofAchTitle
+id hofListView
 id home
 id homeAsUp
 id honorRequest
@@ -2093,7 +2108,6 @@ id ignore
 id ignoreRequest
 id image
 id imageView
-id imageView2
 id imageView3
 id immediateStop
 id inId
@@ -2487,6 +2501,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout item_hof
 layout material_chip_input_combo
 layout material_clock_display
 layout material_clock_display_divider

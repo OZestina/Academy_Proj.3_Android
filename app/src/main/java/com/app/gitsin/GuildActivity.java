@@ -19,12 +19,11 @@ public class GuildActivity extends AppCompatActivity implements View.OnClickList
 
     ImageButton b1, b2, b3, b4, b5;
     DatabaseReference database;
-
+    String id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        // 파이어베이스 연동 테스트
-        testDBConnect();
+        Intent intent = getIntent();
+        id = intent.getStringExtra("id");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guild);
@@ -42,27 +41,6 @@ public class GuildActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-    public void testDBConnect() {
-        final String TAG = "FireBase>>";
-        database = FirebaseDatabase.getInstance().getReference();
-        Log.d(TAG, database + " ");
-        database.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.d(TAG, "user 아래의 자식들의 개수: " + snapshot.getChildrenCount());
-                Log.d(TAG, "전체 json 목록 가지고 온 것:" + snapshot.getChildren());
-                for (DataSnapshot snapshot1: snapshot.getChildren()){
-                    Log.d(TAG, "하나의 snapshot:" + snapshot1);
-                    Log.d(TAG, "하나의 snapshot value:" + snapshot1.getValue());
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.d(TAG, error.getMessage());
-            }
-        });
-
-    }
 
     @Override
     public void onClick(View view) {
@@ -84,6 +62,7 @@ public class GuildActivity extends AppCompatActivity implements View.OnClickList
                 intent = new Intent(GuildActivity.this, GuildActivity.class);
                 break;
         }
+        intent.putExtra("id", id);
         startActivity(intent);
     }
 

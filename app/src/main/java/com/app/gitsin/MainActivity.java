@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     ImageButton b1, b2, b3, b4, b5;
     DatabaseReference database;
-    Intent intent;
     String id;
     TextView idView, signDateView;
 
@@ -30,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        intent = getIntent();
+        Intent intent = getIntent();
         id = intent.getStringExtra("id");
 
         b1 = findViewById(R.id.menu1Pro);
@@ -82,9 +81,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 a = MainActivity.class;
                 break;
         }
-        Intent intent2 = new Intent(MainActivity.this, a);
-        intent2.putExtra("id", id);
-        startActivity(intent2);
+        Intent intent = new Intent(MainActivity.this, a);
+        intent.putExtra("id", id);
+        startActivity(intent);
     }
 
 }
