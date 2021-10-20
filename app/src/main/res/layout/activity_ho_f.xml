@@ -24,42 +24,81 @@
         <LinearLayout
             android:gravity="center"
             android:orientation="horizontal"
+            android:layout_marginVertical="10dp"
             android:layout_width="match_parent"
             android:layout_height="70dp">
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="120dp"
+                android:orientation="horizontal"
+                android:layout_width="150dp"
                 android:layout_height="match_parent">
-
+                <ImageView
+                    app:srcCompat="@drawable/hof_crown"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"/>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="완료"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/hofCompleteT"
+                        android:text="0"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_marginHorizontal="15dp"
-                android:orientation="vertical"
-                android:layout_width="120dp"
+                android:orientation="horizontal"
+                android:layout_width="150dp"
                 android:layout_height="match_parent">
-
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="120dp"
-                android:layout_height="match_parent">
-
+                <ImageView
+                    app:srcCompat="@drawable/hof_bullseye"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"/>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="진행중"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/hofIngT"
+                        android:text="0"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="500dp">
+            android:layout_height="470dp">
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="500dp">
+                android:layout_height="470dp">
                 <ListView
                     android:id="@+id/hofListView"
                     android:divider="@color/lightgrey"
                     android:dividerHeight="1dp"
                     android:layout_width="match_parent"
-                    android:layout_height="500dp"/>
+                    android:layout_height="470dp"/>
             </LinearLayout>
         </ScrollView>
 
