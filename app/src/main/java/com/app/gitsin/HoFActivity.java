@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,9 +23,13 @@ public class HoFActivity extends AppCompatActivity implements View.OnClickListen
 
     ImageButton b1, b2, b3, b4, b5;
     DatabaseReference database;
+    String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Intent intentPre = getIntent();
+        id = intentPre.getStringExtra("id");
 
         // 파이어베이스 연동 테스트
         testDBConnect();
@@ -44,6 +49,8 @@ public class HoFActivity extends AppCompatActivity implements View.OnClickListen
         b5.setOnClickListener(this);
 
         // (일단) 데이터 정적 추가 -> DB에서 읽어와야 함
+        // drawble ID, achTitle, achDetail, achMax -> Sqlite3
+        // achProgress -> FireBase
         HoFListItem achieve1 = new HoFListItem(R.drawable.hof_01, "귀농", "모내기 1회", 76, 1);
         HoFListItem achieve2 = new HoFListItem(R.drawable.hof_02, "초보 농사꾼", "10일 연속 모내기 달성", 76, 10);
         HoFListItem achieve3 = new HoFListItem(R.drawable.hof_03, "프로 농장주", "100일 연속 모내기 달성", 76, 100);
@@ -58,6 +65,21 @@ public class HoFActivity extends AppCompatActivity implements View.OnClickListen
         data.add(achieve4);
         data.add(achieve5);
         data.add(achieve6);
+
+        // 완료, 진행 중 카운터
+        int countComplete = 0;
+        int countIng = 0;
+        for (int i = 0; i < data.size(); i++) {
+            // DTO에서 값을 가져와 하나하나 더해준다.
+            countComplete += data.get(i).getAchComplete();
+            countIng += data.get(i).getAchIng();
+        }
+
+        // 카운터를 setText
+        TextView completeT = findViewById(R.id.hofCompleteT);
+        TextView ingT = findViewById(R.id.hofIngT);
+        completeT.setText(String.valueOf(countComplete));
+        ingT.setText(String.valueOf(countIng));
 
         ListView listView = findViewById(R.id.hofListView);
         HoFAdapter adapter = new HoFAdapter(data);
@@ -106,6 +128,7 @@ public class HoFActivity extends AppCompatActivity implements View.OnClickListen
                 intent = new Intent(HoFActivity.this, HoFActivity.class);
                 break;
         }
+        intent.putExtra("id", id);
         startActivity(intent);
     }
 
