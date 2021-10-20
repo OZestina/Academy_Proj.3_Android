@@ -28,7 +28,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="121dp"
+            android:layout_height="152dp"
             android:orientation="horizontal">
 
             <ImageView
@@ -40,20 +40,12 @@
                 tools:ignore="VectorDrawableCompat" />
 
             <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/ic_launcher_background"
-                tools:ignore="VectorDrawableCompat"/>
-
-            <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/ic_launcher_background"
-                tools:ignore="VectorDrawableCompat"/>
+                tools:ignore="VectorDrawableCompat" />
         </LinearLayout>
 
         <TextView
@@ -62,10 +54,34 @@
             android:layout_height="wrap_content"
             android:text="챌린지 리스트" />
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_gravity="right">
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="단체" />
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="개인" />
+        </LinearLayout>
+
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" >
 
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </ScrollView>
 
     </LinearLayout>
