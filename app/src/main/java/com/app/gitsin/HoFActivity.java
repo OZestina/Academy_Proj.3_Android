@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,16 +25,18 @@ public class HoFActivity extends AppCompatActivity implements View.OnClickListen
 
     ImageButton b1, b2, b3, b4, b5;
     DatabaseReference database;
+    SqliteHelper sqliteHelper;
     String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        final String TAG = "FIREBASE";
+
+        sqliteHelper = new SqliteHelper(this);
+
         Intent intentPre = getIntent();
         id = intentPre.getStringExtra("id");
-
-        // 파이어베이스 연동 테스트
-        testDBConnect();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ho_f);
@@ -48,83 +52,102 @@ public class HoFActivity extends AppCompatActivity implements View.OnClickListen
         b4.setOnClickListener(this);
         b5.setOnClickListener(this);
 
-        // (일단) 데이터 정적 추가 -> DB에서 읽어와야 함
-        // drawble ID, achTitle, achDetail, achMax -> Sqlite3
-        // achProgress -> FireBase
-        HoFListItem achieve1 = new HoFListItem(R.drawable.hof_01, "귀농", "모내기 1회", 76, 1);
-        HoFListItem achieve2 = new HoFListItem(R.drawable.hof_02, "초보 농사꾼", "10일 연속 모내기 달성", 76, 10);
-        HoFListItem achieve3 = new HoFListItem(R.drawable.hof_03, "프로 농장주", "100일 연속 모내기 달성", 76, 100);
-        HoFListItem achieve4 = new HoFListItem(R.drawable.hof_04, "친구칭긔", "친구 1명 등록하기", 0, 1);
-        HoFListItem achieve5 = new HoFListItem(R.drawable.hof_05, "팀 프로젝트", "친구 5명 등록하기", 0, 5);
-        HoFListItem achieve6 = new HoFListItem(R.drawable.hof_06, "깃신 인싸", "친구 20명 등록하기", 0, 20);
-
-        ArrayList<HoFListItem> data = new ArrayList<>();
-        data.add(achieve1);
-        data.add(achieve2);
-        data.add(achieve3);
-        data.add(achieve4);
-        data.add(achieve5);
-        data.add(achieve6);
-
-        // 완료, 진행 중 카운터
-        int countComplete = 0;
-        int countIng = 0;
-        for (int i = 0; i < data.size(); i++) {
-            // DTO에서 값을 가져와 하나하나 더해준다.
-            countComplete += data.get(i).getAchComplete();
-            countIng += data.get(i).getAchIng();
-        }
-
-        // 카운터를 setText
-        TextView completeT = findViewById(R.id.hofCompleteT);
-        TextView ingT = findViewById(R.id.hofIngT);
-        completeT.setText(String.valueOf(countComplete));
-        ingT.setText(String.valueOf(countIng));
-
-        ListView listView = findViewById(R.id.hofListView);
-        HoFAdapter adapter = new HoFAdapter(data);
-        listView.setAdapter(adapter);
-    }
-
-    public void testDBConnect() {
-        final String TAG = "FireBase>>";
-        database = FirebaseDatabase.getInstance().getReference();
-        Log.d(TAG, database + " ");
-        database.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
+        HoFAchievement achieve = new HoFAchievement();
+        database = FirebaseDatabase.getInstance().getReference("achievement");
+        database.orderByChild("userId").equalTo(id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.d(TAG, "user 아래의 자식들의 개수: " + snapshot.getChildrenCount());
-                Log.d(TAG, "전체 json 목록 가지고 온 것:" + snapshot.getChildren());
-                for (DataSnapshot snapshot1: snapshot.getChildren()){
-                    Log.d(TAG, "하나의 snapshot:" + snapshot1);
-                    Log.d(TAG, "하나의 snapshot value:" + snapshot1.getValue());
+                ArrayList<HoFAchievement> list = hofReadSqlite();
+                HoFAchievement achieve = new HoFAchievement();
+                for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                    Log.d(TAG, "from Firebase : " + snapshot1.getValue());
+                    achieve = snapshot1.getValue(HoFAchievement.class);
                 }
+                final int[] momoBASED = {0, 3};
+                final int[] friendsBASED = {3, 6};
+
+                ArrayList<HoFListItem> data = new ArrayList<>();
+                for (int i = momoBASED[0]; i < momoBASED[1]; i++) {
+                    int drawableId = getApplicationContext().getResources().getIdentifier(list.get(i).getAchDrawable(), "drawable", getApplicationContext().getPackageName());
+                    HoFListItem item = new HoFListItem(
+                            drawableId,
+                            list.get(i).getAchTitle(),
+                            list.get(i).getAchDetail(),
+                            achieve.getMomo(),
+                            list.get(i).getAchMax());
+                    data.add(item);
+                }
+                for (int i = friendsBASED[0]; i < friendsBASED[1]; i++) {
+                    int drawableId = getApplicationContext().getResources().getIdentifier(list.get(i).getAchDrawable(), "drawable", getApplicationContext().getPackageName());
+                    HoFListItem item = new HoFListItem(
+                            drawableId,
+                            list.get(i).getAchTitle(),
+                            list.get(i).getAchDetail(),
+                            achieve.getFriends(),
+                            list.get(i).getAchMax());
+                    data.add(item);
+                }
+
+                // 완료, 진행 중 카운터
+                int countComplete = 0;
+                int countIng = 0;
+                for (int i = 0; i < data.size(); i++) {
+                    // DTO에서 값을 가져와 하나하나 더해준다.
+                    countComplete += data.get(i).getAchComplete();
+                    countIng += data.get(i).getAchIng();
+                }
+
+                // 카운터를 setText
+                TextView completeT = findViewById(R.id.hofCompleteT);
+                TextView ingT = findViewById(R.id.hofIngT);
+                completeT.setText(String.valueOf(countComplete));
+                ingT.setText(String.valueOf(countIng));
+
+                ListView listView = findViewById(R.id.hofListView);
+                HoFAdapter adapter = new HoFAdapter(data);
+                listView.setAdapter(adapter);
+
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.d(TAG, error.getMessage());
             }
         });
+    }
 
+    private ArrayList<HoFAchievement> hofReadSqlite() {
+        SQLiteDatabase sqlDB = sqliteHelper.getReadableDatabase();
+        Cursor cursor = sqlDB.rawQuery("SELECT * FROM achievement;", null);
+        ArrayList<HoFAchievement> list = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            HoFAchievement dto = new HoFAchievement();
+            dto.setAchDrawable(cursor.getString(0));
+            dto.setAchTitle(cursor.getString(1));
+            dto.setAchDetail(cursor.getString(2));
+            dto.setAchMax(cursor.getInt(3));
+            list.add(dto);
+        }
+        return list;
     }
 
     @Override
     public void onClick(View view) {
         Intent intent;
         switch (view.getId()) {
-            case R.id.menu2Pro :
+            case R.id.menu2Pro:
                 intent = new Intent(HoFActivity.this, MainActivity.class);
                 break;
-            case R.id.menu2Challenge :
+            case R.id.menu2Challenge:
                 intent = new Intent(HoFActivity.this, ChaActivity.class);
                 break;
-            case R.id.menu2Guild :
+            case R.id.menu2Guild:
                 intent = new Intent(HoFActivity.this, GuildActivity.class);
                 break;
-            case R.id.menu2Friends :
+            case R.id.menu2Friends:
                 intent = new Intent(HoFActivity.this, FriendsActivity.class);
                 break;
-            default :
+            default:
                 intent = new Intent(HoFActivity.this, HoFActivity.class);
                 break;
         }

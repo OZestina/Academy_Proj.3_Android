@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 
 public class Login extends AppCompatActivity {
 
+    SqliteHelper sqliteHelper;
     DatabaseReference database;
     Button loginBtn, signBtn;
     EditText id, pw;
@@ -29,6 +31,10 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        // SQLite3 추가 부분 (10.20 19:15)
+        sqliteHelper = new SqliteHelper(this);
+
         loginBtn = findViewById(R.id.loginBtn);
         signBtn = findViewById(R.id.goSignPageBtn);
         id = findViewById(R.id.inId);
@@ -50,6 +56,12 @@ public class Login extends AppCompatActivity {
                         for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                             User user = snapshot1.getValue(User.class);
                             if(userPw.equals(user.getUserPw())){
+
+                                // SQLite3 추가 부분 (10.20 19:48)
+                                SQLiteDatabase sqlDB = sqliteHelper.getWritableDatabase();
+                                sqliteHelper.onCreate(sqlDB);
+                                sqlDB.close();
+
                                 Intent intent = new Intent(Login.this, MainActivity.class);
                                 intent.putExtra("id", userId);
                                 startActivity(intent);

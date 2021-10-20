@@ -10,6 +10,9 @@ public class HoFListItem {
     private int achComplete;
     private int achIng;
 
+    public HoFListItem() {
+    }
+
     public int getAchComplete() {
         return achComplete;
     }
