@@ -56,47 +56,28 @@ public class HoFActivity extends AppCompatActivity implements View.OnClickListen
         b4.setOnClickListener(this);
         b5.setOnClickListener(this);
 
+        final int streakBASED = 3;
+        final int starBASED = 6;
+        final int chaSingleBASED = 8;
+        final int chaTeamBASED = 10;
+
         ArrayList<HoFAchievement> list = hofReadSqlite();
-
-        final int[] streakBASED = {0, 3};
-        final int[] starBASED = {3, 6};
-        final int[] chaSingleBASED = {6, 8};
-        final int[] chaTeamBASED = {8, 10};
-
         ArrayList<HoFListItem> data = new ArrayList<>();
         int stars = user.getStar().split(",").length;
 
         for (int i = 0; i < list.size(); i++) {
             int drawableId = getApplicationContext().getResources().getIdentifier(list.get(i).getAchDrawable(),
                     "drawable", getApplicationContext().getPackageName());
-            if (streakBASED[0] <= i && i < streakBASED[1]) {
-                item = new HoFListItem(
-                    drawableId,
-                    list.get(i).getAchTitle(),
-                    list.get(i).getAchDetail(),
-                    user.getMaxStreak(),
-                    list.get(i).getAchMax());
-            } else if (starBASED[0] <= i && i < starBASED[1]) {
-                item = new HoFListItem(
-                        drawableId,
-                        list.get(i).getAchTitle(),
-                        list.get(i).getAchDetail(),
-                        stars,
-                        list.get(i).getAchMax());
-            } else if (chaSingleBASED[0] <= i && i < chaSingleBASED[1]) {
-                item = new HoFListItem(
-                        drawableId,
-                        list.get(i).getAchTitle(),
-                        list.get(i).getAchDetail(),
-                        user.getChaPersonDone(),
-                        list.get(i).getAchMax());
-            } else {
-                item = new HoFListItem(
-                        drawableId,
-                        list.get(i).getAchTitle(),
-                        list.get(i).getAchDetail(),
-                        user.getChaGroupDone(),
-                        list.get(i).getAchMax());
+            HoFListItem item = new HoFListItem(drawableId,
+                    list.get(i).getAchTitle(), list.get(i).getAchDetail());
+            if (i < streakBASED) {
+                item.setNowMax(user.getMaxStreak(), list.get(i).getAchMax());
+            } else if (i < starBASED) {
+                item.setNowMax(stars, list.get(i).getAchMax());
+            } else if (i < chaSingleBASED) {
+                item.setNowMax(user.getChaPersonDone(), list.get(i).getAchMax());
+            } else if (i < chaTeamBASED){
+                item.setNowMax(user.getChaGroupDone(), list.get(i).getAchMax());
             }
             data.add(item);
         }
