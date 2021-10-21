@@ -10,7 +10,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/starUser"
+            android:id="@+id/findUser"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -19,7 +19,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/starGit"
+            android:id="@+id/findGit"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -28,7 +28,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/starBtn"
+        android:id="@+id/findBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

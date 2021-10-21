@@ -23,30 +23,17 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
 
     ImageButton b1, b2, b3, b4, b5;
     DatabaseReference database;
-    String id;
+    User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cha);
 
         Intent intent = getIntent();
-        id = intent.getStringExtra("id");
-        // 파이어베이스 연동 테스트
-        //testDBConnect();
+        user = (User)intent.getSerializableExtra("info");
 
-        //크롤링 테스트
-        //StreakCrawling sc = new StreakCrawling("ozestina");
-        //버튼 없앴음 주의
-//        Button crawling = findViewById(R.id.chaBtnCrawl);
-//        crawling.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Log.d("크롤", sc.getStreakCheckStart());
-//                Log.d("크롤", Integer.toString(sc.getMaxStreak()));
-//                Log.d("크롤", Integer.toString(sc.getStreakToday()));
-//                Log.d("크롤", Integer.toString(sc.getTodayCount()));
-//            }
-//        });
+
+
 
         // (일단) 데이터 정적 추가 -> DB에서 읽어와야 함
         ChaListItem cha1 = new ChaListItem("호드", "단체전", "2021-10-24", "8/10");
@@ -118,7 +105,7 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
                 intent = new Intent(ChaActivity.this, ChaActivity.class);
                 break;
         }
-        intent.putExtra("id", id);
+        intent.putExtra("info", user);
         startActivity(intent);
     }
 
