@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -65,6 +67,7 @@ public class Login extends AppCompatActivity {
 
                                 Intent intent = new Intent(Login.this, MainActivity.class);
                                 intent.putExtra("id", userId);
+                                intent.putExtra("info", user);
                                 startActivity(intent);
                             }else {
                                 loginResult.setText("비밀번호가 틀렸습니다.");

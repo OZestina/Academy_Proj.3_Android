@@ -1,11 +1,13 @@
 package com.app.gitsin;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String userId;
     private String userPw;
     private String signDate;
     private String githubId;
-    private String friends;
+    private String star;
 
     //가장 최근 로그인 날짜 (streak기준일)
     private String streakCheckStart;
@@ -23,12 +25,12 @@ public class User {
     public User() {
     }
 
-    public User(String userId, String userPw, String signDate, String githubId, String friends, String streakCheckStart, int maxStreak, int streakToday, int todayCount, int chaGroup, int chaPerson, int chaGroupDone, int chaPersonDone) {
+    public User(String userId, String userPw, String signDate, String githubId, String star, String streakCheckStart, int maxStreak, int streakToday, int todayCount, int chaGroup, int chaPerson, int chaGroupDone, int chaPersonDone) {
         this.userId = userId;
         this.userPw = userPw;
         this.signDate = signDate;
         this.githubId = githubId;
-        this.friends = friends;
+        this.star = star;
         this.streakCheckStart = streakCheckStart;
         this.maxStreak = maxStreak;
         this.streakToday = streakToday;
@@ -63,12 +65,12 @@ public class User {
         this.githubId = githubId;
     }
 
-    public String getFriends() {
-        return friends;
+    public String getStar() {
+        return star;
     }
 
-    public void setFriends(String friends) {
-        this.friends = friends;
+    public void setStar(String star) {
+        this.star = star;
     }
 
     public int getChaGroup() {
@@ -150,7 +152,7 @@ public class User {
                 ", userPw='" + userPw + '\'' +
                 ", signDate='" + signDate + '\'' +
                 ", githubId='" + githubId + '\'' +
-                ", friends='" + friends + '\'' +
+                ", star='" + star + '\'' +
                 ", streakCheckStart='" + streakCheckStart + '\'' +
                 ", maxStreak=" + maxStreak +
                 ", streakToday=" + streakToday +

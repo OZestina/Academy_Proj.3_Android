@@ -14,20 +14,27 @@
         android:layout_height="600dp">
 
         <TextView
-            android:text="친구"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="즐겨찾기"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <TextView
-                android:text="이곳에 내용을 넣으세요."
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="match_parent">
+                <ListView
+                    android:id="@+id/starListView"
+                    android:divider="@color/lightgrey"
+                    android:dividerHeight="1dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
         </ScrollView>
 
     </LinearLayout>

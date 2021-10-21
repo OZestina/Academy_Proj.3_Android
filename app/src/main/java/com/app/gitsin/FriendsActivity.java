@@ -19,12 +19,11 @@ public class FriendsActivity extends AppCompatActivity implements View.OnClickLi
 
     ImageButton b1, b2, b3, b4, b5;
     DatabaseReference database;
-    String id;
+    User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent = getIntent();
-        id = intent.getStringExtra("id");
-
+        user = (User)intent.getSerializableExtra("info");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friends);
 
@@ -40,7 +39,6 @@ public class FriendsActivity extends AppCompatActivity implements View.OnClickLi
         b5.setOnClickListener(this);
 
     }
-
 
     @Override
     public void onClick(View view) {
@@ -62,7 +60,7 @@ public class FriendsActivity extends AppCompatActivity implements View.OnClickLi
                 intent = new Intent(FriendsActivity.this, FriendsActivity.class);
                 break;
         }
-        intent.putExtra("id", id);
+        intent.putExtra("info", user);
         startActivity(intent);
     }
 

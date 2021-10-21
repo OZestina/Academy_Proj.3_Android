@@ -21,16 +21,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     ImageButton b1, b2, b3, b4, b5;
     DatabaseReference database;
-    String id;
     TextView idView, signDateView;
-
+    User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         Intent intent = getIntent();
-        id = intent.getStringExtra("id");
+        user = (User)intent.getSerializableExtra("info");
 
         b1 = findViewById(R.id.menu1Pro);
         b2 = findViewById(R.id.menu1Hof);
@@ -46,19 +45,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         b5.setOnClickListener(this);
 
         database = FirebaseDatabase.getInstance().getReference("users");
-        database.orderByChild("userId").equalTo(id).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot snapshot1 : snapshot.getChildren()) {
-                    User user = snapshot1.getValue(User.class);
-                    idView.setText(user.getUserId());
-                    signDateView.setText(user.getSignDate() + "일에 가입");
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
+        idView.setText(user.getUserId());
+        signDateView.setText(user.getSignDate() + "일에 가입");
     }
 
     @Override
@@ -82,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
         Intent intent = new Intent(MainActivity.this, a);
-        intent.putExtra("id", id);
+        intent.putExtra("info", user);
         startActivity(intent);
     }
 
