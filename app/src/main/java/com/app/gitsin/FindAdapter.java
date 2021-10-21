@@ -19,12 +19,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class findAdapter extends BaseAdapter {
+public class FindAdapter extends BaseAdapter {
         ArrayList<User> userList;
         User user, my;
         String key;
 
-        public findAdapter(ArrayList<User> userList, User user) {
+        public FindAdapter(ArrayList<User> userList, User user) {
             this.userList = userList;
             my = user;
         }

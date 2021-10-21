@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GitSin"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Find"></activity>
+        <activity android:name=".Find" />
         <activity android:name=".Sign" />
         <activity android:name=".FriendsActivity" />
         <activity android:name=".GuildActivity" />
