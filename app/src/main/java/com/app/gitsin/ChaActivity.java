@@ -81,9 +81,6 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
             public void onCancelled(@NonNull DatabaseError error) { }
         });
 
-
-
-
         //하단 메뉴
         b1 = findViewById(R.id.menu3Pro);
         b2 = findViewById(R.id.menu3Hof);
@@ -95,28 +92,6 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
         b3.setOnClickListener(this);
         b4.setOnClickListener(this);
         b5.setOnClickListener(this);
-    }
-
-    public void testDBConnect() {
-        final String TAG = "FireBase>>";
-        database = FirebaseDatabase.getInstance().getReference();
-        Log.d(TAG, database + " ");
-        database.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.d(TAG, "user 아래의 자식들의 개수: " + snapshot.getChildrenCount());
-                Log.d(TAG, "전체 json 목록 가지고 온 것:" + snapshot.getChildren());
-                for (DataSnapshot snapshot1: snapshot.getChildren()){
-                    Log.d(TAG, "하나의 snapshot:" + snapshot1);
-                    Log.d(TAG, "하나의 snapshot value:" + snapshot1.getValue());
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.d(TAG, error.getMessage());
-            }
-        });
-
     }
 
     @Override

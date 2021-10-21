@@ -15,7 +15,7 @@
         <activity android:name=".Find" />
         <activity android:name=".Sign" />
         <activity android:name=".FriendsActivity" />
-        <activity android:name=".GuildActivity" />
+        <activity android:name=".StatsActivity" />
         <activity android:name=".ChaActivity" />
         <activity android:name=".HoFActivity" />
         <activity android:name=".MainActivity">
