@@ -1,6 +1,7 @@
 package com.app.gitsin;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -17,18 +19,20 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class StarAdapter extends BaseAdapter {
-    ArrayList<String> idList;
-    User user;
+public class FindAdapter extends BaseAdapter {
+    ArrayList<User> userList;
+    User user, my;
     String key;
 
-    public StarAdapter(ArrayList<String> idList) {
-        this.idList = idList;
+    public FindAdapter(ArrayList<User> userList, User user, String key) {
+        this.userList = userList;
+        my = user;
+        this.key = key;
     }
 
     @Override
     public int getCount() {
-        return idList.size();
+        return userList.size();
     }
 
     @Override
@@ -44,30 +48,38 @@ public class StarAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         final Context context = viewGroup.getContext();
-        View star = View.inflate(context, R.layout.item_star, null);
-        TextView starUser = star.findViewById(R.id.starUser);
-        TextView starGit = star.findViewById(R.id.starGit);
-        Button starBtn = star.findViewById(R.id.starBtn);
+        View find = View.inflate(context, R.layout.item_find, null);
+        TextView findUser = find.findViewById(R.id.findUser);
+        TextView findGit = find.findViewById(R.id.findGit);
+        Button findBtn = find.findViewById(R.id.findBtn);
         DatabaseReference database = FirebaseDatabase.getInstance().getReference("users");
-        database.orderByChild("userId").equalTo(idList.get(i)).addValueEventListener(new ValueEventListener() {
+        database.orderByChild("userId").equalTo(userList.get(i).getUserId()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                     user = snapshot1.getValue(User.class);
-                    starUser.setText(user.getUserId());
-                    starGit.setText(user.getGithubId());
-                    key = snapshot1.getKey();
+                    findUser.setText(user.getUserId());
+                    findGit.setText(user.getGithubId());
                 }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-        starBtn.setOnClickListener(new View.OnClickListener() {
+        findBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String star = my.getStar();
+                star = star + user.getUserId() + ",";
+                my.setStar(star);
+                database.child(key).setValue(my).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("ssss","3번");
+                    }
+                });
             }
         });
-        return star;
+        return find;
     }
 }
