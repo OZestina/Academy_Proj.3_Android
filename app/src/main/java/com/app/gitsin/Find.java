@@ -31,7 +31,7 @@ public class Find extends AppCompatActivity implements View.OnClickListener {
         Intent intent = getIntent();
         user = (User)intent.getSerializableExtra("info");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_friends);
+        setContentView(R.layout.activity_find);
         b1 = findViewById(R.id.menu6Pro);
         b2 = findViewById(R.id.menu6Hof);
         b3 = findViewById(R.id.menu6Challenge);
@@ -44,7 +44,7 @@ public class Find extends AppCompatActivity implements View.OnClickListener {
         b5.setOnClickListener(this);
 
         arrayList = new ArrayList<>();
-
+        database = FirebaseDatabase.getInstance().getReference("users");
         database.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -60,7 +60,6 @@ public class Find extends AppCompatActivity implements View.OnClickListener {
             }
         });
 
-        Log.d("aaa", arrayList.toString());
         ListView listView = findViewById(R.id.findListView);
         findAdapter adapter = new findAdapter(arrayList, user);
         listView.setAdapter(adapter);

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.app.gitsin">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,9 +10,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.GitSin">
-        <activity android:name=".Sign"></activity>
+        android:theme="@style/Theme.GitSin"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".Find"></activity>
+        <activity android:name=".Sign" />
         <activity android:name=".FriendsActivity" />
         <activity android:name=".GuildActivity" />
         <activity android:name=".ChaActivity" />
