@@ -1799,6 +1799,8 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable cha_group
+drawable cha_personal
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -1987,10 +1989,14 @@ id carryVelocity
 id center
 id center_horizontal
 id center_vertical
+id chaBtn
+id chaCategory
+id chaListView
+id chaName
+id chaPart
+id chaStartDate
 id chain
 id chains
-id checkBox
-id checkBox2
 id checkbox
 id checked
 id chip
@@ -2501,6 +2507,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout item_cha
 layout item_hof
 layout material_chip_input_combo
 layout material_clock_display

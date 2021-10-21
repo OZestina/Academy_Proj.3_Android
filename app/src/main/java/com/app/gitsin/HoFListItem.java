@@ -7,6 +7,19 @@ public class HoFListItem {
     private String achDetail;
     private int achProgress;
     private int achMax;
+    private int achComplete;
+    private int achIng;
+
+    public HoFListItem() {
+    }
+
+    public int getAchComplete() {
+        return achComplete;
+    }
+
+    public int getAchIng() {
+        return achIng;
+    }
 
     public HoFListItem(int achImage, String achTitle, String achDetail, int achProgress, int achMax) {
         this.achImage = achImage;
@@ -14,6 +27,12 @@ public class HoFListItem {
         this.achDetail = achDetail;
         this.achProgress = achProgress;
         this.achMax = achMax;
+        if (achProgress >= achMax) {
+            this.achComplete++;
+        }
+        if (achProgress < achMax && achProgress != 0) {
+            this.achIng++;
+        }
     }
 
     public int getAchImage() {

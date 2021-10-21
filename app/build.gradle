@@ -41,4 +41,5 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:28.4.2')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-auth'
+    implementation 'org.jsoup:jsoup:1.13.1'
 }
