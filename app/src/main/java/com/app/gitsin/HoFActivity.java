@@ -1,29 +1,17 @@
 package com.app.gitsin;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class HoFActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -48,7 +36,7 @@ public class HoFActivity extends AppCompatActivity implements View.OnClickListen
         b1 = findViewById(R.id.menu2Pro);
         b2 = findViewById(R.id.menu2Hof);
         b3 = findViewById(R.id.menu2Challenge);
-        b4 = findViewById(R.id.menu2Guild);
+        b4 = findViewById(R.id.menu2Stats);
         b5 = findViewById(R.id.menu2Friends);
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
@@ -128,8 +116,8 @@ public class HoFActivity extends AppCompatActivity implements View.OnClickListen
             case R.id.menu2Challenge:
                 intent = new Intent(HoFActivity.this, ChaActivity.class);
                 break;
-            case R.id.menu2Guild:
-                intent = new Intent(HoFActivity.this, GuildActivity.class);
+            case R.id.menu2Stats:
+                intent = new Intent(HoFActivity.this, StatsActivity.class);
                 break;
             case R.id.menu2Friends:
                 intent = new Intent(HoFActivity.this, FriendsActivity.class);

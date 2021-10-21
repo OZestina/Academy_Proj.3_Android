@@ -1,21 +1,14 @@
 package com.app.gitsin;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -33,7 +26,7 @@ public class FriendsActivity extends AppCompatActivity implements View.OnClickLi
         b1 = findViewById(R.id.menu5Pro);
         b2 = findViewById(R.id.menu5Hof);
         b3 = findViewById(R.id.menu5Challenge);
-        b4 = findViewById(R.id.menu5Guild);
+        b4 = findViewById(R.id.menu5Stats);
         b5 = findViewById(R.id.menu5Friends);
         findBtn = findViewById(R.id.findBtn);
         b1.setOnClickListener(this);
@@ -74,8 +67,8 @@ public class FriendsActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.menu5Challenge :
                 intent = new Intent(FriendsActivity.this, ChaActivity.class);
                 break;
-            case R.id.menu5Guild :
-                intent = new Intent(FriendsActivity.this, GuildActivity.class);
+            case R.id.menu5Stats :
+                intent = new Intent(FriendsActivity.this, StatsActivity.class);
                 break;
             default :
                 intent = new Intent(FriendsActivity.this, FriendsActivity.class);

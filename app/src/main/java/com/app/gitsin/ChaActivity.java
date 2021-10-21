@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
@@ -54,7 +53,7 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
         b1 = findViewById(R.id.menu3Pro);
         b2 = findViewById(R.id.menu3Hof);
         b3 = findViewById(R.id.menu3Challenge);
-        b4 = findViewById(R.id.menu3Guild);
+        b4 = findViewById(R.id.menu3Stats);
         b5 = findViewById(R.id.menu3Friends);
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
@@ -95,8 +94,8 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
             case R.id.menu3Hof :
                 intent = new Intent(ChaActivity.this, HoFActivity.class);
                 break;
-            case R.id.menu3Guild :
-                intent = new Intent(ChaActivity.this, GuildActivity.class);
+            case R.id.menu3Stats :
+                intent = new Intent(ChaActivity.this, StatsActivity.class);
                 break;
             case R.id.menu3Friends :
                 intent = new Intent(ChaActivity.this, FriendsActivity.class);

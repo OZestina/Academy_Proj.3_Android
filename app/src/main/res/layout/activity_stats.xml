@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".GuildActivity">
+    tools:context=".StatsActivity">
 
     <LinearLayout
         android:orientation="vertical"
@@ -14,7 +14,7 @@
         android:layout_height="600dp">
 
         <TextView
-            android:text="길드"
+            android:text="통계"
             android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -55,7 +55,7 @@
             app:srcCompat="@drawable/ic_launcher_foreground"
             tools:ignore="VectorDrawableCompat" />
         <ImageButton
-            android:id="@+id/menu4Guild"
+            android:id="@+id/menu4Stats"
             android:layout_width="82dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/ic_launcher_foreground"
