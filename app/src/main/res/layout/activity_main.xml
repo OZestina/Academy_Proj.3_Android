@@ -89,7 +89,7 @@
             tools:ignore="VectorDrawableCompat" />
 
         <ImageButton
-            android:id="@+id/menu1Guild"
+            android:id="@+id/menu1Stats"
             android:layout_width="82dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/ic_launcher_foreground"

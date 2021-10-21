@@ -21,10 +21,19 @@ public class HoFListItem {
         return achIng;
     }
 
+    public HoFListItem(int achImage, String achTitle, String achDetail) {
+        this.achImage = achImage;
+        this.achTitle = achTitle;
+        this.achDetail = achDetail;
+    }
+
     public HoFListItem(int achImage, String achTitle, String achDetail, int achProgress, int achMax) {
         this.achImage = achImage;
         this.achTitle = achTitle;
         this.achDetail = achDetail;
+    }
+
+    public void setNowMax(int achProgress, int achMax) {
         this.achProgress = achProgress;
         this.achMax = achMax;
         if (achProgress >= achMax) {

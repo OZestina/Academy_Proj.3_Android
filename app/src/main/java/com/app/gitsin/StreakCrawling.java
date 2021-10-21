@@ -30,7 +30,7 @@ public class StreakCrawling extends Thread {
     }
 
     public void run() {
-        Log.d("크롤링 시작","ㅁㅁ");
+//        Log.d("크롤링 시작","ㅁㅁ");
         try {
             //크롤링할 웹사이트 링크 & 크롤링 시작
             Log.d("githubID", user.getGithubId());
@@ -68,7 +68,7 @@ public class StreakCrawling extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Log.d("크롤링 종료","ㄱㄱ");
+//        Log.d("크롤링 종료","ㄱㄱ");
     }
 
     public User crawlingResult() {

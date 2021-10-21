@@ -1,10 +1,12 @@
 package com.app.gitsin;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.text.Layout;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -15,6 +17,14 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 public class HoFAdapter extends BaseAdapter {
@@ -23,6 +33,16 @@ public class HoFAdapter extends BaseAdapter {
 
     public HoFAdapter(ArrayList<HoFListItem> list) {
         thisList = list;
+    }
+
+    @Override
+    public int getViewTypeCount() {
+        return getCount();
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
     }
 
     @Override
@@ -61,17 +81,20 @@ public class HoFAdapter extends BaseAdapter {
         // Data Set(list) 에서 position에 위치한 데이터 참조 획득
         HoFListItem listItem = thisList.get(position);
 
+        int drawable = listItem.getAchImage();
+        String title = listItem.getAchTitle();
+        String detail = listItem.getAchDetail();
+        int progress = listItem.getAchProgress();
+        int max = listItem.getAchMax();
+        String count = (progress >= max) ? "완료" : progress + "/" + max;
+
         // 아이템 내 각 위젯에 데이터 반영
-        hofImage.setImageResource(listItem.getAchImage());
-        hofTitle.setText(listItem.getAchTitle());
-        hofDetail.setText(listItem.getAchDetail());
-        hofBar.setProgress(listItem.getAchProgress());
-        hofBar.setMax(listItem.getAchMax());
-        String count = listItem.getAchProgress() + "/" + listItem.getAchMax();
+        hofImage.setImageResource(drawable);
+        hofTitle.setText(title);
+        hofDetail.setText(detail);
+        hofBar.setProgress(progress);
+        hofBar.setMax(max);
         hofCount.setText(count);
-        if (listItem.getAchProgress() >= listItem.getAchMax()) {
-            hofCount.setText("완료!");
-        }
 
         convertView.setOnTouchListener(new View.OnTouchListener() {
             @Override

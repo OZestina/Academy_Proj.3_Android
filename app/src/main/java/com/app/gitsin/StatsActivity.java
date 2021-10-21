@@ -1,21 +1,15 @@
 package com.app.gitsin;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-public class GuildActivity extends AppCompatActivity implements View.OnClickListener {
+public class StatsActivity extends AppCompatActivity implements View.OnClickListener {
 
     ImageButton b1, b2, b3, b4, b5;
     DatabaseReference database;
@@ -28,12 +22,12 @@ public class GuildActivity extends AppCompatActivity implements View.OnClickList
         key = intent.getStringExtra("key");
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_guild);
+        setContentView(R.layout.activity_stats);
 
         b1 = findViewById(R.id.menu4Pro);
         b2 = findViewById(R.id.menu4Hof);
         b3 = findViewById(R.id.menu4Challenge);
-        b4 = findViewById(R.id.menu4Guild);
+        b4 = findViewById(R.id.menu4Stats);
         b5 = findViewById(R.id.menu4Friends);
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
@@ -49,19 +43,19 @@ public class GuildActivity extends AppCompatActivity implements View.OnClickList
         Intent intent;
         switch (view.getId()) {
             case R.id.menu4Pro :
-                intent = new Intent(GuildActivity.this, MainActivity.class);
+                intent = new Intent(StatsActivity.this, MainActivity.class);
                 break;
             case R.id.menu4Hof :
-                intent = new Intent(GuildActivity.this, HoFActivity.class);
+                intent = new Intent(StatsActivity.this, HoFActivity.class);
                 break;
             case R.id.menu4Challenge :
-                intent = new Intent(GuildActivity.this, ChaActivity.class);
+                intent = new Intent(StatsActivity.this, ChaActivity.class);
                 break;
             case R.id.menu4Friends :
-                intent = new Intent(GuildActivity.this, FriendsActivity.class);
+                intent = new Intent(StatsActivity.this, FriendsActivity.class);
                 break;
             default :
-                intent = new Intent(GuildActivity.this, GuildActivity.class);
+                intent = new Intent(StatsActivity.this, StatsActivity.class);
                 break;
         }
         intent.putExtra("info", user);

@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -82,7 +81,7 @@ public class Find extends AppCompatActivity implements View.OnClickListener {
                 intent = new Intent(Find.this, ChaActivity.class);
                 break;
             case R.id.menu6Guild :
-                intent = new Intent(Find.this, GuildActivity.class);
+                intent = new Intent(Find.this, StatsActivity.class);
                 break;
             default :
                 intent = new Intent(Find.this, FriendsActivity.class);

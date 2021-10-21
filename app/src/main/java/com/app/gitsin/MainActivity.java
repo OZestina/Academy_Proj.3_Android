@@ -1,21 +1,15 @@
 package com.app.gitsin;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -36,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         b1 = findViewById(R.id.menu1Pro);
         b2 = findViewById(R.id.menu1Hof);
         b3 = findViewById(R.id.menu1Challenge);
-        b4 = findViewById(R.id.menu1Guild);
+        b4 = findViewById(R.id.menu1Stats);
         b5 = findViewById(R.id.menu1Friends);
         idView = findViewById(R.id.idView);
         signDateView = findViewById(R.id.signDateView);
@@ -61,8 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.menu1Challenge :
                 a = ChaActivity.class;
                 break;
-            case R.id.menu1Guild :
-                a = GuildActivity.class;
+            case R.id.menu1Stats :
+                a = StatsActivity.class;
                 break;
             case R.id.menu1Friends :
                 a = FriendsActivity.class;

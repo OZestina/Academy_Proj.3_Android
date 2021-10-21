@@ -1,29 +1,17 @@
 package com.app.gitsin;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class HoFActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -52,7 +40,7 @@ public class HoFActivity extends AppCompatActivity implements View.OnClickListen
         b1 = findViewById(R.id.menu2Pro);
         b2 = findViewById(R.id.menu2Hof);
         b3 = findViewById(R.id.menu2Challenge);
-        b4 = findViewById(R.id.menu2Guild);
+        b4 = findViewById(R.id.menu2Stats);
         b5 = findViewById(R.id.menu2Friends);
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
@@ -60,47 +48,28 @@ public class HoFActivity extends AppCompatActivity implements View.OnClickListen
         b4.setOnClickListener(this);
         b5.setOnClickListener(this);
 
+        final int streakBASED = 3;
+        final int starBASED = 6;
+        final int chaSingleBASED = 8;
+        final int chaTeamBASED = 10;
+
         ArrayList<HoFAchievement> list = hofReadSqlite();
-
-        final int[] streakBASED = {0, 3};
-        final int[] starBASED = {3, 6};
-        final int[] chaSingleBASED = {6, 8};
-        final int[] chaTeamBASED = {8, 10};
-
         ArrayList<HoFListItem> data = new ArrayList<>();
         int stars = user.getStar().split(",").length;
 
         for (int i = 0; i < list.size(); i++) {
             int drawableId = getApplicationContext().getResources().getIdentifier(list.get(i).getAchDrawable(),
                     "drawable", getApplicationContext().getPackageName());
-            if (streakBASED[0] <= i && i < streakBASED[1]) {
-                item = new HoFListItem(
-                    drawableId,
-                    list.get(i).getAchTitle(),
-                    list.get(i).getAchDetail(),
-                    user.getMaxStreak(),
-                    list.get(i).getAchMax());
-            } else if (starBASED[0] <= i && i < starBASED[1]) {
-                item = new HoFListItem(
-                        drawableId,
-                        list.get(i).getAchTitle(),
-                        list.get(i).getAchDetail(),
-                        stars,
-                        list.get(i).getAchMax());
-            } else if (chaSingleBASED[0] <= i && i < chaSingleBASED[1]) {
-                item = new HoFListItem(
-                        drawableId,
-                        list.get(i).getAchTitle(),
-                        list.get(i).getAchDetail(),
-                        user.getChaPersonDone(),
-                        list.get(i).getAchMax());
-            } else {
-                item = new HoFListItem(
-                        drawableId,
-                        list.get(i).getAchTitle(),
-                        list.get(i).getAchDetail(),
-                        user.getChaGroupDone(),
-                        list.get(i).getAchMax());
+            HoFListItem item = new HoFListItem(drawableId,
+                    list.get(i).getAchTitle(), list.get(i).getAchDetail());
+            if (i < streakBASED) {
+                item.setNowMax(user.getMaxStreak(), list.get(i).getAchMax());
+            } else if (i < starBASED) {
+                item.setNowMax(stars, list.get(i).getAchMax());
+            } else if (i < chaSingleBASED) {
+                item.setNowMax(user.getChaPersonDone(), list.get(i).getAchMax());
+            } else if (i < chaTeamBASED){
+                item.setNowMax(user.getChaGroupDone(), list.get(i).getAchMax());
             }
             data.add(item);
         }
@@ -151,8 +120,8 @@ public class HoFActivity extends AppCompatActivity implements View.OnClickListen
             case R.id.menu2Challenge:
                 intent = new Intent(HoFActivity.this, ChaActivity.class);
                 break;
-            case R.id.menu2Guild:
-                intent = new Intent(HoFActivity.this, GuildActivity.class);
+            case R.id.menu2Stats:
+                intent = new Intent(HoFActivity.this, StatsActivity.class);
                 break;
             case R.id.menu2Friends:
                 intent = new Intent(HoFActivity.this, FriendsActivity.class);
