@@ -20,65 +20,66 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class FindAdapter extends BaseAdapter {
-        ArrayList<User> userList;
-        User user, my;
-        String key;
+    ArrayList<User> userList;
+    User user, my;
+    String key;
 
-        public FindAdapter(ArrayList<User> userList, User user) {
-            this.userList = userList;
-            my = user;
-        }
+    public FindAdapter(ArrayList<User> userList, User user, String key) {
+        this.userList = userList;
+        my = user;
+        this.key = key;
+    }
 
-        @Override
-        public int getCount() {
-            return userList.size();
-        }
+    @Override
+    public int getCount() {
+        return userList.size();
+    }
 
-        @Override
-        public Object getItem(int i) {
-            return null;
-        }
+    @Override
+    public Object getItem(int i) {
+        return null;
+    }
 
-        @Override
-        public long getItemId(int i) {
-            return 0;
-        }
+    @Override
+    public long getItemId(int i) {
+        return 0;
+    }
 
-        @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            final Context context = viewGroup.getContext();
-            View find = View.inflate(context, R.layout.item_find, null);
-            TextView findUser = find.findViewById(R.id.findUser);
-            TextView findGit = find.findViewById(R.id.findGit);
-            Button findBtn = find.findViewById(R.id.findBtn);
-            DatabaseReference database = FirebaseDatabase.getInstance().getReference("users");
-            database.orderByChild("userId").equalTo(userList.get(i).getUserId()).addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    for (DataSnapshot snapshot1 : snapshot.getChildren()) {
-                        user = snapshot1.getValue(User.class);
-                        findUser.setText(user.getUserId());
-                        findGit.setText(user.getGithubId());
-                        key = snapshot1.getKey();
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        final Context context = viewGroup.getContext();
+        View find = View.inflate(context, R.layout.item_find, null);
+        TextView findUser = find.findViewById(R.id.findUser);
+        TextView findGit = find.findViewById(R.id.findGit);
+        Button findBtn = find.findViewById(R.id.findBtn);
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference("users");
+        database.orderByChild("userId").equalTo(userList.get(i).getUserId()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                    user = snapshot1.getValue(User.class);
+                    findUser.setText(user.getUserId());
+                    findGit.setText(user.getGithubId());
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+        findBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String star = my.getStar();
+                star = star + user.getUserId() + ",";
+                my.setStar(star);
+                database.child(key).setValue(my).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("ssss","3번");
                     }
-                }
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                }
-            });
-            findBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    String star = my.getStar();
-                    star = star + user.getUserId();
-                    database.child(key).child("star").setValue(star).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Log.d("ssss","3번");
-                        }
-                    });
-                }
-            });
-            return find;
-        }
+                });
+            }
+        });
+        return find;
+    }
 }

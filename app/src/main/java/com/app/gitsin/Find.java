@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -24,6 +25,7 @@ public class Find extends AppCompatActivity implements View.OnClickListener {
     User user;
     ArrayList<User> arrayList;
     int i = 1;
+    String key;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent = getIntent();
@@ -50,16 +52,19 @@ public class Find extends AppCompatActivity implements View.OnClickListener {
                 for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                     User user = snapshot1.getValue(User.class);
                     arrayList.add(user);
+                    key = snapshot1.getKey();
                 }
                 i = arrayList.size();
+                ListView listView = findViewById(R.id.findListView);
+                FindAdapter adapter = new FindAdapter(arrayList, user, key);
+                listView.setAdapter(adapter);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-        ListView listView = findViewById(R.id.findListView);
-        FindAdapter adapter = new FindAdapter(arrayList, user);
-        listView.setAdapter(adapter);
+
+
 
     }
 
