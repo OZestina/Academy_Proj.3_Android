@@ -70,7 +70,7 @@ public class FindAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 String star = my.getStar();
-                star = star + user.getUserId() + ",";
+                star = star + user.getUserId() + ",";  //user가 최종값으로 저장되서 버튼 3개다 cc로 추가됨. 수정해야함
                 my.setStar(star);
                 database.child(key).setValue(my).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

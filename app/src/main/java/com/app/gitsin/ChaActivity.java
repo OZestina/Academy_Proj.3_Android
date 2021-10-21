@@ -24,6 +24,7 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
     ImageButton b1, b2, b3, b4, b5;
     DatabaseReference database;
     User user;
+    String key;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +32,7 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
 
         Intent intent = getIntent();
         user = (User)intent.getSerializableExtra("info");
+        key = intent.getStringExtra("key");
 
 
 
@@ -106,6 +108,7 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
                 break;
         }
         intent.putExtra("info", user);
+        intent.putExtra("key", key);
         startActivity(intent);
     }
 

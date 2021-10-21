@@ -24,10 +24,12 @@ public class FriendsActivity extends AppCompatActivity implements View.OnClickLi
     ImageButton b1, b2, b3, b4, b5, findBtn;
     DatabaseReference database;
     User user;
+    String key;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent = getIntent();
         user = (User)intent.getSerializableExtra("info");
+        key = intent.getStringExtra("key");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friends);
         b1 = findViewById(R.id.menu5Pro);
@@ -56,6 +58,7 @@ public class FriendsActivity extends AppCompatActivity implements View.OnClickLi
             public void onClick(View view) {
                 Intent intent = new Intent(FriendsActivity.this, Find.class);
                 intent.putExtra("info", user);
+                intent.putExtra("key", key);
                 startActivity(intent);
             }
         });
@@ -82,6 +85,7 @@ public class FriendsActivity extends AppCompatActivity implements View.OnClickLi
                 break;
         }
         intent.putExtra("info", user);
+        intent.putExtra("key", key);
         startActivity(intent);
     }
 

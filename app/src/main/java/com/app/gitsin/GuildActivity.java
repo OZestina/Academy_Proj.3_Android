@@ -19,11 +19,13 @@ public class GuildActivity extends AppCompatActivity implements View.OnClickList
 
     ImageButton b1, b2, b3, b4, b5;
     DatabaseReference database;
-    String id;
+    String key;
+    User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent = getIntent();
-        id = intent.getStringExtra("id");
+        user = (User)intent.getSerializableExtra("info");
+        key = intent.getStringExtra("key");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guild);
@@ -62,7 +64,8 @@ public class GuildActivity extends AppCompatActivity implements View.OnClickList
                 intent = new Intent(GuildActivity.this, GuildActivity.class);
                 break;
         }
-        intent.putExtra("id", id);
+        intent.putExtra("info", user);
+        intent.putExtra("key", key);
         startActivity(intent);
     }
 
