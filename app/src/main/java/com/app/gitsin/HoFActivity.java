@@ -9,6 +9,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -20,6 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HoFActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -52,8 +56,7 @@ public class HoFActivity extends AppCompatActivity implements View.OnClickListen
         b4.setOnClickListener(this);
         b5.setOnClickListener(this);
 
-        HoFAchievement achieve = new HoFAchievement();
-        database = FirebaseDatabase.getInstance().getReference("achievement");
+        database = FirebaseDatabase.getInstance().getReference("users");
         database.orderByChild("userId").equalTo(id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -69,22 +72,24 @@ public class HoFActivity extends AppCompatActivity implements View.OnClickListen
                 ArrayList<HoFListItem> data = new ArrayList<>();
                 for (int i = momoBASED[0]; i < momoBASED[1]; i++) {
                     int drawableId = getApplicationContext().getResources().getIdentifier(list.get(i).getAchDrawable(), "drawable", getApplicationContext().getPackageName());
+                    int achMax = Integer.parseInt(list.get(i).getAchMax());
                     HoFListItem item = new HoFListItem(
                             drawableId,
                             list.get(i).getAchTitle(),
                             list.get(i).getAchDetail(),
-                            achieve.getMomo(),
-                            list.get(i).getAchMax());
+                            achieve.getMaxStreak(),
+                            achMax);
                     data.add(item);
                 }
                 for (int i = friendsBASED[0]; i < friendsBASED[1]; i++) {
                     int drawableId = getApplicationContext().getResources().getIdentifier(list.get(i).getAchDrawable(), "drawable", getApplicationContext().getPackageName());
+                    int achMax = Integer.parseInt(list.get(i).getAchMax());
                     HoFListItem item = new HoFListItem(
                             drawableId,
                             list.get(i).getAchTitle(),
                             list.get(i).getAchDetail(),
-                            achieve.getFriends(),
-                            list.get(i).getAchMax());
+                            achieve.getStar(),
+                            achMax);
                     data.add(item);
                 }
 
