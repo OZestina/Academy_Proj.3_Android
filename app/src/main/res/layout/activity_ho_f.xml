@@ -7,17 +7,6 @@
     android:orientation="vertical"
     tools:context=".HoFActivity">
 
-    <EditText
-        android:id="@+id/t111"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <Button
-        android:id="@+id/b111"
-        android:text="update"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -97,21 +86,13 @@
             </LinearLayout>
         </LinearLayout>
 
-        <ScrollView
+        <ListView
+            android:id="@+id/hofListView"
+            android:divider="@color/lightgrey"
+            android:dividerHeight="1dp"
+            android:overScrollMode="never"
             android:layout_width="match_parent"
-            android:layout_height="470dp">
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="470dp">
-                <ListView
-                    android:id="@+id/hofListView"
-                    android:divider="@color/lightgrey"
-                    android:dividerHeight="1dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="470dp"/>
-            </LinearLayout>
-        </ScrollView>
+            android:layout_height="470dp"/>
 
     </LinearLayout>
 

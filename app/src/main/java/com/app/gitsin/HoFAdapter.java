@@ -1,10 +1,13 @@
 package com.app.gitsin;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.text.Layout;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -67,11 +70,14 @@ public class HoFAdapter extends BaseAdapter {
         String count = listItem.getAchProgress() + "/" + listItem.getAchMax();
         hofCount.setText(count);
         if (listItem.getAchProgress() >= listItem.getAchMax()) {
-            hofBar.setVisibility(View.INVISIBLE);
             hofCount.setText("완료!");
-            hofCount.setTextColor(Color.RED);
-            hofCount.setGravity(Gravity.CENTER_HORIZONTAL);
         }
+
+        convertView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }});
 
         return convertView;
     }
