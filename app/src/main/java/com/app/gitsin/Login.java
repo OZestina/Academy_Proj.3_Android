@@ -66,7 +66,6 @@ public class Login extends AppCompatActivity {
                                 sqlDB.close();
 
                                 Intent intent = new Intent(Login.this, MainActivity.class);
-                                intent.putExtra("id", userId);
                                 intent.putExtra("info", user);
                                 startActivity(intent);
                             }else {
