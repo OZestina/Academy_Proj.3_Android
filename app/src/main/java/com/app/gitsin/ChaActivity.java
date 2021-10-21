@@ -39,6 +39,9 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
         key = intent.getStringExtra("key");
         final String TAG = "FIREBASE";
 
+        chaIVPerson = findViewById(R.id.chaIVPerson);
+        chaIVGroup = findViewById(R.id.chaIVGroup);
+
         //현재 챌린지 참여 여부 확인해서 참여중인 경우 이미지 변경
         if (user.getChaGroup() == 1){ chaIVGroup.setImageResource(R.drawable.cha_group); }
         if (user.getChaPerson() == 1){ chaIVPerson.setImageResource(R.drawable.cha_personal); }
@@ -52,13 +55,7 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
                 //리스트 저장
                 for (DataSnapshot data : snapshot.getChildren()) {
                     ChaDTO a = data.getValue(ChaDTO.class);
-                    Log.d("파베 DB",a.toString());
-
-                    ChaDTO b = new ChaDTO(a.getCategory(), a.getLimit(), a.getName(), a.getParticipants(),a.getStartDate());
-                    Log.d("파베 DB",b.toString());
-
-                    boolean c = chaDTOs.add(b);
-                    Log.d("파베 DB2",chaDTOs.get(0).getCategory());
+                    chaDTOs.add(a);
                 }
 
                 //DTO -> ChaListItem 데이터 가공
@@ -74,7 +71,7 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
                 Log.d("파베 어댑터", "데이터 가공 끝");
 
                 ListView listView = findViewById(R.id.chaListView);
-                ChaAdapter adapter = new ChaAdapter(chaListItems);
+                ChaAdapter adapter = new ChaAdapter(chaListItems, chaDTOs, user, key);
                 listView.setAdapter(adapter);
 
             }
