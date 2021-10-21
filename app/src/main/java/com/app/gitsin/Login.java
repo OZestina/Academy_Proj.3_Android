@@ -12,7 +12,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -58,7 +61,23 @@ public class Login extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                             User user = snapshot1.getValue(User.class);
+                            String userKey = snapshot1.getKey();
                             if(userPw.equals(user.getUserPw())){
+
+                                //Crawling 내용 FireBase 저장
+                                StreakCrawling sc = new StreakCrawling(user);
+                                sc.start();
+
+                                try {
+                                    sc.join();
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+
+                                user = sc.crawlingResult();
+//                                Log.d("crawling값3",user.toString());
+
+                                database.child(userKey).setValue(user);
 
                                 // SQLite3 추가 부분 (10.20 19:48)
                                 SQLiteDatabase sqlDB = sqliteHelper.getWritableDatabase();
