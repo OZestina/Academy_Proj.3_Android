@@ -28,7 +28,7 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
     DatabaseReference database;
     User user;
     ArrayList<ChaDTO> chaDTOs;
-
+    String key;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +36,7 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
 
         Intent intent = getIntent();
         user = (User)intent.getSerializableExtra("info");
+        key = intent.getStringExtra("key");
         final String TAG = "FIREBASE";
 
         //현재 챌린지 참여 여부 확인해서 참여중인 경우 이미지 변경
@@ -115,6 +116,7 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
                 break;
         }
         intent.putExtra("info", user);
+        intent.putExtra("key", key);
         startActivity(intent);
     }
 

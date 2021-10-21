@@ -29,6 +29,7 @@ public class Find extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent = getIntent();
         user = (User)intent.getSerializableExtra("info");
+        key = intent.getStringExtra("key");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find);
         b1 = findViewById(R.id.menu6Pro);
@@ -51,7 +52,6 @@ public class Find extends AppCompatActivity implements View.OnClickListener {
                 for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                     User user = snapshot1.getValue(User.class);
                     arrayList.add(user);
-                    key = snapshot1.getKey();
                 }
                 i = arrayList.size();
                 ListView listView = findViewById(R.id.findListView);
@@ -88,6 +88,7 @@ public class Find extends AppCompatActivity implements View.OnClickListener {
                 break;
         }
         intent.putExtra("info", user);
+        intent.putExtra("key", key);
         startActivity(intent);
     }
 

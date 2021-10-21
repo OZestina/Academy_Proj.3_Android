@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     DatabaseReference database;
     TextView idView, signDateView;
     User user;
+    String key;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Intent intent = getIntent();
         user = (User)intent.getSerializableExtra("info");
+        key = intent.getStringExtra("key");
 
         b1 = findViewById(R.id.menu1Pro);
         b2 = findViewById(R.id.menu1Hof);
@@ -65,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         Intent intent = new Intent(MainActivity.this, a);
         intent.putExtra("info", user);
+        intent.putExtra("key", key);
         startActivity(intent);
     }
 
