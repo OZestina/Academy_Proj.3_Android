@@ -31,7 +31,7 @@ import java.util.TimeZone;
 
 public class Sign extends AppCompatActivity {
     DatabaseReference database;
-    EditText id, pw, pw2;
+    EditText id, pw, pw2, gitId;
     Button checkBtn, signBtn;
     TextView pwCheckMsg, idCheckMsg;
     int i = 1;
@@ -42,10 +42,12 @@ public class Sign extends AppCompatActivity {
         id = findViewById(R.id.inId2);
         pw = findViewById(R.id.inPw2);
         pw2 = findViewById(R.id.inPw3);
+        gitId = findViewById(R.id.inGitId);
         checkBtn = findViewById(R.id.idCheckBtn);
         signBtn = findViewById(R.id.signBtn);
         pwCheckMsg = findViewById(R.id.pwCheckMsg);
         idCheckMsg = findViewById(R.id.idCheckMsg);
+
 
         database = FirebaseDatabase.getInstance().getReference("users");
         Log.d("파이어베이스>> ", database + " ");
@@ -102,6 +104,7 @@ public class Sign extends AppCompatActivity {
             public void onClick(View v) {
                 String inId = id.getText().toString();
                 String inPw = pw.getText().toString();
+                String inGitId = gitId.getText().toString();
                 TimeZone tz;                                        // 객체 생성
                 DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.KOREAN);
                 tz = TimeZone.getTimeZone("Asia/Seoul");  // TimeZone에 표준시 설정
@@ -110,7 +113,7 @@ public class Sign extends AppCompatActivity {
                 Date date = new Date();                        // 현재 날짜가 담긴 Date 객체 생성
                 Log.d("DATE", dateFormat.format(date));     //  출력
                 if(idCheckMsg.getText().toString().equals("")&&pwCheckMsg.getText().toString().equals("")){
-                    User user = new User(inId, inPw, dateFormat.format(date));
+                    User user = new User(inId, inPw, dateFormat.format(date), inGitId, "", "", 0,0,0,0,0,0,0);
                     database.child(String.valueOf(i)).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {

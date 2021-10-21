@@ -17,25 +17,42 @@ public class User {
     private int todayCount;
     private int chaGroup;
     private int chaPerson;
+    private int chaGroupDone;
+    private int chaPersonDone;
 
     public User() {
     }
 
-    public User(String userId, String userPw, String signDate, String githubId, String friends) {
+    public User(String userId, String userPw, String signDate, String githubId, String friends, String streakCheckStart, int maxStreak, int streakToday, int todayCount, int chaGroup, int chaPerson, int chaGroupDone, int chaPersonDone) {
         this.userId = userId;
         this.userPw = userPw;
         this.signDate = signDate;
         this.githubId = githubId;
         this.friends = friends;
-    }
-
-    public User(String streakCheckStart, int maxStreak, int streakToday, int todayCount, int chaGroup, int chaPerson) {
         this.streakCheckStart = streakCheckStart;
         this.maxStreak = maxStreak;
         this.streakToday = streakToday;
         this.todayCount = todayCount;
         this.chaGroup = chaGroup;
         this.chaPerson = chaPerson;
+        this.chaGroupDone = chaGroupDone;
+        this.chaPersonDone = chaPersonDone;
+    }
+
+    public int getChaGroupDone() {
+        return chaGroupDone;
+    }
+
+    public void setChaGroupDone(int chaGroupDone) {
+        this.chaGroupDone = chaGroupDone;
+    }
+
+    public int getChaPersonDone() {
+        return chaPersonDone;
+    }
+
+    public void setChaPersonDone(int chaPersonDone) {
+        this.chaPersonDone = chaPersonDone;
     }
 
     public String getGithubId() {

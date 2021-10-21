@@ -2124,6 +2124,7 @@ id image
 id imageView
 id imageView3
 id immediateStop
+id inGitId
 id inId
 id inId2
 id inPw
@@ -2374,6 +2375,7 @@ id textView4
 id textView5
 id textView6
 id textView7
+id textView8
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
