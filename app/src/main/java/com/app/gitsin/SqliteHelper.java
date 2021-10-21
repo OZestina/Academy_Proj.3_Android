@@ -29,7 +29,6 @@ public class SqliteHelper extends SQLiteOpenHelper {
             // chaTableCreate(sqLiteDatabase);
         }
         cursor.close();
-        sqLiteDatabase.close();
     }
 
     // 업적 테이블 관련

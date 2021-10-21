@@ -4,6 +4,8 @@ public class User {
     private String userId;
     private String userPw;
     private String signDate;
+    private String githubId;
+    private String friends;
 
     //가장 최근 로그인 날짜 (streak기준일)
     private String streakCheckStart;
@@ -13,25 +15,59 @@ public class User {
     private int streakToday;
     //오늘 contribute 여부
     private int todayCount;
-
+    private int chaGroup;
+    private int chaPerson;
 
     public User() {
     }
 
-    public User(String userId, String userPw, String signDate) {
+    public User(String userId, String userPw, String signDate, String githubId, String friends) {
         this.userId = userId;
         this.userPw = userPw;
         this.signDate = signDate;
+        this.githubId = githubId;
+        this.friends = friends;
     }
 
-    public User(String userId, String userPw, String signDate, String streakCheckStart, int maxStreak, int streakToday, int todayCount) {
-        this.userId = userId;
-        this.userPw = userPw;
-        this.signDate = signDate;
+    public User(String streakCheckStart, int maxStreak, int streakToday, int todayCount, int chaGroup, int chaPerson) {
         this.streakCheckStart = streakCheckStart;
         this.maxStreak = maxStreak;
         this.streakToday = streakToday;
         this.todayCount = todayCount;
+        this.chaGroup = chaGroup;
+        this.chaPerson = chaPerson;
+    }
+
+    public String getGithubId() {
+        return githubId;
+    }
+
+    public void setGithubId(String githubId) {
+        this.githubId = githubId;
+    }
+
+    public String getFriends() {
+        return friends;
+    }
+
+    public void setFriends(String friends) {
+        this.friends = friends;
+    }
+
+    public int getChaGroup() {
+        return chaGroup;
+    }
+
+    public void setChaGroup(int chaGroup) {
+        this.chaGroup = chaGroup;
+    }
+
+    public int getChaPerson() {
+        return chaPerson;
+    }
+
+    public void setChaPerson(int chaPerson) {
+        this.chaPerson = chaPerson;
     }
 
     public String getStreakCheckStart() {
@@ -96,10 +132,14 @@ public class User {
                 "userId='" + userId + '\'' +
                 ", userPw='" + userPw + '\'' +
                 ", signDate='" + signDate + '\'' +
+                ", githubId='" + githubId + '\'' +
+                ", friends='" + friends + '\'' +
                 ", streakCheckStart='" + streakCheckStart + '\'' +
                 ", maxStreak=" + maxStreak +
                 ", streakToday=" + streakToday +
                 ", todayCount=" + todayCount +
+                ", chaGroup=" + chaGroup +
+                ", chaPerson=" + chaPerson +
                 '}';
     }
 }

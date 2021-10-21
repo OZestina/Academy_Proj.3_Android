@@ -23,12 +23,14 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
 
     ImageButton b1, b2, b3, b4, b5;
     DatabaseReference database;
-
+    String id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cha);
 
+        Intent intent = getIntent();
+        id = intent.getStringExtra("id");
         // 파이어베이스 연동 테스트
         //testDBConnect();
 
@@ -116,6 +118,7 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
                 intent = new Intent(ChaActivity.this, ChaActivity.class);
                 break;
         }
+        intent.putExtra("id", id);
         startActivity(intent);
     }
 

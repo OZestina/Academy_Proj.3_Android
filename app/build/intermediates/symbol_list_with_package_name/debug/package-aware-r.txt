@@ -1267,6 +1267,7 @@ color purple_200
 color purple_500
 color purple_700
 color radiobutton_themeable_attribute_color
+color red
 color ripple_material_dark
 color ripple_material_light
 color secondary_text_default_material_dark
@@ -1800,7 +1801,9 @@ drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable cha_group
+drawable cha_group_default
 drawable cha_personal
+drawable cha_personal_default
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -1833,6 +1836,9 @@ drawable hof_03
 drawable hof_04
 drawable hof_05
 drawable hof_06
+drawable hof_bullseye
+drawable hof_chart
+drawable hof_crown
 drawable ic_clock_black_24dp
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
@@ -2098,6 +2104,8 @@ id hofAchCount
 id hofAchDetail
 id hofAchImage
 id hofAchTitle
+id hofCompleteT
+id hofIngT
 id hofListView
 id home
 id homeAsUp
