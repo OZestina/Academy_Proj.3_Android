@@ -1,9 +1,19 @@
 package com.app.gitsin;
 
 public class User {
-    String userId;
-    String userPw;
-    String signDate;
+    private String userId;
+    private String userPw;
+    private String signDate;
+
+    //가장 최근 로그인 날짜 (streak기준일)
+    private String streakCheckStart;
+    //맥시멈 streak & counting용 변수
+    private int maxStreak;
+    //현재 streak
+    private int streakToday;
+    //오늘 contribute 여부
+    private int todayCount;
+
 
     public User() {
     }
@@ -12,6 +22,48 @@ public class User {
         this.userId = userId;
         this.userPw = userPw;
         this.signDate = signDate;
+    }
+
+    public User(String userId, String userPw, String signDate, String streakCheckStart, int maxStreak, int streakToday, int todayCount) {
+        this.userId = userId;
+        this.userPw = userPw;
+        this.signDate = signDate;
+        this.streakCheckStart = streakCheckStart;
+        this.maxStreak = maxStreak;
+        this.streakToday = streakToday;
+        this.todayCount = todayCount;
+    }
+
+    public String getStreakCheckStart() {
+        return streakCheckStart;
+    }
+
+    public void setStreakCheckStart(String streakCheckStart) {
+        this.streakCheckStart = streakCheckStart;
+    }
+
+    public int getMaxStreak() {
+        return maxStreak;
+    }
+
+    public void setMaxStreak(int maxStreak) {
+        this.maxStreak = maxStreak;
+    }
+
+    public int getStreakToday() {
+        return streakToday;
+    }
+
+    public void setStreakToday(int streakToday) {
+        this.streakToday = streakToday;
+    }
+
+    public int getTodayCount() {
+        return todayCount;
+    }
+
+    public void setTodayCount(int todayCount) {
+        this.todayCount = todayCount;
     }
 
     public String getUserId() {
@@ -44,6 +96,10 @@ public class User {
                 "userId='" + userId + '\'' +
                 ", userPw='" + userPw + '\'' +
                 ", signDate='" + signDate + '\'' +
+                ", streakCheckStart='" + streakCheckStart + '\'' +
+                ", maxStreak=" + maxStreak +
+                ", streakToday=" + streakToday +
+                ", todayCount=" + todayCount +
                 '}';
     }
 }
