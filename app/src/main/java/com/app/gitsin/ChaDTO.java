@@ -5,7 +5,6 @@ public class ChaDTO {
     private String category;
     private int limit;
     private String name;
-    private int partNum;
     private String participants;
     private String startDate;
 
@@ -43,14 +42,6 @@ public class ChaDTO {
         this.name = name;
     }
 
-    public int getPartNum() {
-        return partNum;
-    }
-
-    public void setPartNum(int partNum) {
-        this.partNum = partNum;
-    }
-
     public String getParticipants() {
         return participants;
     }
@@ -73,13 +64,8 @@ public class ChaDTO {
                 "category='" + category + '\'' +
                 ", limit=" + limit +
                 ", name='" + name + '\'' +
-                ", partNum=" + partNum +
-                ", participants{ part" + (partNum+1) + participants + '\'' +
-                "}, startDate='" + startDate + '\'' +
+                ", participants='" + participants + '\'' +
+                ", startDate='" + startDate + '\'' +
                 '}';
     }
-
-//    "participants" : {
-//        "part1" : "ozestina"
-//    },
 }
