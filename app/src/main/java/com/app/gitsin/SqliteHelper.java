@@ -26,7 +26,6 @@ public class SqliteHelper extends SQLiteOpenHelper {
         if (cursor.getCount() == 1) {
             // 업적 테이블 생성 + insert
             achTableCreate(sqLiteDatabase);
-            // chaTableCreate(sqLiteDatabase);
         }
         cursor.close();
     }
@@ -44,20 +43,6 @@ public class SqliteHelper extends SQLiteOpenHelper {
                 "('hof_06', '깃신 인싸', '친구 20명 추가하기', 20)";
         sqLiteDatabase.execSQL(achSQL);
         Log.d(TAG, "VALUES INSERTED INTO achievement");
-    }
-
-    private void chaTableCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("CREATE TABLE challenge (achDrawble char(17), achTitle char(20), achDetail char(50), achMax INTEGER)");
-        Log.d(TAG, "CREATED TABLE challenge");
-        String achSQL = "INSERT INTO challenge VALUES " +
-                "('hof_01', '귀농', '모내기 1회', 1)," +
-                "('hof_02', '초보 농사꾼', '10일 연속 모내기 달성', 10)," +
-                "('hof_03', '프로 농장주', '100일 연속 모내기 달성', 100)," +
-                "('hof_04', '친구칭긔', '친구 1명 추가하기', 1)," +
-                "('hof_05', '팀 프로젝트', '친구 5명 추가하기', 5)," +
-                "('hof_06', '깃신 인싸', '친구 20명 추가하기', 20)";
-        sqLiteDatabase.execSQL(achSQL);
-        Log.d(TAG, "VALUES INSERTED INTO challenge");
     }
 
     @Override
