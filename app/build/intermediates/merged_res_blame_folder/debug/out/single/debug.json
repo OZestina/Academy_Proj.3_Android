@@ -1,170 +1,206 @@
 [
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_hof_04.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\hof_04.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_sign.xml.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\layout\\activity_sign.xml"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_hof_04.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\hof_04.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_hof_02.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\hof_02.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_hof_crown.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\hof_crown.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\layout\\activity_login.xml"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_ho_f.xml.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\layout\\activity_ho_f.xml"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cha_personal_default.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\cha_personal_default.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_hof_07.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable-v24\\hof_07.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_sign.xml.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\layout\\activity_sign.xml"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_guild.xml.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\layout\\activity_guild.xml"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_hof_01.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\hof_01.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\layout\\activity_login.xml"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_ho_f.xml.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\layout\\activity_ho_f.xml"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_star.xml.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\layout\\item_star.xml"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cha_personal.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\cha_personal.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cha_group_default.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\cha_group_default.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_hof_06.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\hof_06.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cha_group.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\cha_group.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cha_personal.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\cha_personal.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_hof_02.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\hof_02.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_cha.xml.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\layout\\item_cha.xml"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cha_group.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\cha_group.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_hof_05.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\hof_05.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_cha.xml.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\layout\\activity_cha.xml"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_hof_05.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\hof_05.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_find.xml.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\layout\\activity_find.xml"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\xml_setting_preference.xml.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\xml\\setting_preference.xml"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_friends.xml.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\layout\\activity_friends.xml"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_hof_10.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable-v24\\hof_10.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_hof.xml.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\layout\\item_hof.xml"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cha_group_default.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\cha_group_default.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_hof_03.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\hof_03.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_hof_chart.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\hof_chart.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cha_personal_default.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\cha_personal_default.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_cha.xml.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\layout\\item_cha.xml"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_hof_09.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable-v24\\hof_09.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_cha.xml.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\layout\\activity_cha.xml"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_stats.xml.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\layout\\activity_stats.xml"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\layout_setting_gitupdate.xml.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\layout\\setting_gitupdate.xml"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_hof_crown.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\hof_crown.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_friends.xml.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\layout\\activity_friends.xml"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_hof_01.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\hof_01.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_hof_chart.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\hof_chart.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_hof_06.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\hof_06.png"
     },
     {
-        "merged": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_hof_bullseye.png.flat",
-        "source": "C:\\Users\\kkzz0\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\hof_bullseye.png"
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_hof.xml.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\layout\\item_hof.xml"
+    },
+    {
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_hof_03.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\hof_03.png"
+    },
+    {
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_find.xml.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\layout\\item_find.xml"
+    },
+    {
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable_hof_bullseye.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable\\hof_bullseye.png"
+    },
+    {
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_hof_08.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\src\\main\\res\\drawable-v24\\hof_08.png"
+    },
+    {
+        "merged": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\tjoeun709\\AndroidStudioProjects\\Academy_project_3\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
     }
 ]

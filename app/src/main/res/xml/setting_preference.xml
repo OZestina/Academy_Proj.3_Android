@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference
+        android:title="설정 페이지"
+        android:selectable="false"
+        />
+
+    <PreferenceCategory android:title="GitHub 연결">
+        <Preference
+            android:title="GitHub 계정 변경"
+            android:summary=""
+            android:key="gitHubAccount"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="알람">
+
+        <CheckBoxPreference
+            android:title="알람 설정"
+            android:summaryOn="깃신의 알림과 함께 올해도 풍년"
+            android:summaryOff="원하는 시간에 깃신 알람을 받아보세요"
+            android:key="alarm"
+            android:defaultValue="true"
+            />
+
+        <ListPreference
+            android:title="알람 시간"
+            android:key="alarmTime"
+            android:defaultValue="am9"
+            android:entries="@array/setting"
+            android:summary="@string/alarmTime"
+            android:entryValues="@array/setting_values"
+            android:negativeButtonText="취소"
+            android:positiveButtonText="저장"
+            android:dependency="alarm"
+            />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="디자인">
+        <SwitchPreference
+            android:title="다크모드"
+            android:key="darkMode"
+            android:defaultValue="light" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="깃신 계정">
+        <Preference
+            android:title="로그아웃"
+            android:key="logOut"/>
+
+        <Preference
+            android:title="깃신 탈퇴"
+            android:key="withdrawal"
+            />
+    </PreferenceCategory>
+
+</PreferenceScreen>

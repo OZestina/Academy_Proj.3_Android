@@ -27,6 +27,13 @@
             android:layout_height="1dp"
             android:background="#535050" />
 
+        <ImageButton
+            android:id="@+id/settingBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right"
+            app:srcCompat="@drawable/cha_personal" />
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">

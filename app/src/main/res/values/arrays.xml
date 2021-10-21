@@ -1,0 +1,24 @@
+<resources>
+    <!-- Reply Preference -->
+    <string-array name="setting">
+        <item>오전 9시</item>
+        <item>오전 11시</item>
+        <item>오후 1시</item>
+        <item>오후 3시</item>
+        <item>오후 5시</item>
+        <item>오후 7시</item>
+        <item>오후 9시</item>
+        <item>오후 11시</item>
+    </string-array>
+
+    <string-array name="setting_values">
+        <item>am9</item>
+        <item>am11</item>
+        <item>pm1</item>
+        <item>pm3</item>
+        <item>pm5</item>
+        <item>pm7</item>
+        <item>pm9</item>
+        <item>pm11</item>
+    </string-array>
+</resources>

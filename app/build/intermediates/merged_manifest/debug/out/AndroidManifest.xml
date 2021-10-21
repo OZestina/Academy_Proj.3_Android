@@ -27,11 +27,13 @@
         android:testOnly="true"
         android:theme="@style/Theme.GitSin"
         android:usesCleartextTraffic="true" >
+        <activity android:name="com.app.gitsin.Find" />
         <activity android:name="com.app.gitsin.Sign" />
         <activity android:name="com.app.gitsin.FriendsActivity" />
-        <activity android:name="com.app.gitsin.GuildActivity" />
+        <activity android:name="com.app.gitsin.StatsActivity" />
         <activity android:name="com.app.gitsin.ChaActivity" />
         <activity android:name="com.app.gitsin.HoFActivity" />
+        <activity android:name="com.app.gitsin.Setting" />
         <activity android:name="com.app.gitsin.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
