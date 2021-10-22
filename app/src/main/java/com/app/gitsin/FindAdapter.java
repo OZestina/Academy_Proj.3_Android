@@ -23,11 +23,13 @@ public class FindAdapter extends BaseAdapter {
     ArrayList<User> userList;
     User user, my;
     String key;
+    final String star;
 
     public FindAdapter(ArrayList<User> userList, User user, String key) {
         this.userList = userList;
         my = user;
         this.key = key;
+        star = user.getStar();
     }
 
     @Override
@@ -52,6 +54,7 @@ public class FindAdapter extends BaseAdapter {
         TextView findUser = find.findViewById(R.id.findUser);
         TextView findGit = find.findViewById(R.id.findGit);
         Button findBtn = find.findViewById(R.id.findBtn);
+        ArrayList<String> idList = new ArrayList<String>();
         DatabaseReference database = FirebaseDatabase.getInstance().getReference("users");
         database.orderByChild("userId").equalTo(userList.get(i).getUserId()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -60,6 +63,7 @@ public class FindAdapter extends BaseAdapter {
                     user = snapshot1.getValue(User.class);
                     findUser.setText(user.getUserId());
                     findGit.setText(user.getGithubId());
+                    idList.add(user.getUserId());
                 }
             }
             @Override
@@ -69,9 +73,8 @@ public class FindAdapter extends BaseAdapter {
         findBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String star = my.getStar();
-                star = star + user.getUserId() + ",";  //user가 최종값으로 저장되서 버튼 3개다 cc로 추가됨. 수정해야함
-                my.setStar(star);
+                String star1 = star + idList.get(i) + ",";  //user가 최종값으로 저장되서 버튼 3개다 cc로 추가됨. 수정해야함
+                my.setStar(star1);
                 database.child(key).setValue(my).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
