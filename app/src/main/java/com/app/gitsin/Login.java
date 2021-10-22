@@ -33,6 +33,7 @@ public class Login extends AppCompatActivity {
     Button loginBtn, signBtn;
     EditText id, pw;
     TextView loginResult;
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,7 +85,7 @@ public class Login extends AppCompatActivity {
                                 sqliteHelper.onCreate(sqlDB);
                                 sqlDB.close();
 
-                                Intent intent = new Intent(Login.this, MainActivity.class);
+                                intent = new Intent(Login.this, MainActivity.class);
                                 intent.putExtra("info", user);
                                 intent.putExtra("key", userKey);
                                 startActivity(intent);
@@ -92,14 +93,6 @@ public class Login extends AppCompatActivity {
                                 loginResult.setText("비밀번호가 틀렸습니다.");
                             }
                         }
-//                        Log.d("파이어베이스>> ", userId + ": userId 상세정보: " + snapshot.getValue().toString().replace("[null, {userPw=", "").split(",")[0]);
-//                        if(userPw.equals(snapshot.getValue().toString().replace("[null, {userPw=", "").split(",")[0])){
-//                            Intent intent = new Intent(Login.this, MainActivity.class);
-//                            intent.putExtra("id", userId);
-//                            startActivity(intent);
-//                        }else {
-//                            loginResult.setText("비밀번호가 틀렸습니다.");
-//                        }
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {

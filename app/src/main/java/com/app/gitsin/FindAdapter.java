@@ -24,6 +24,7 @@ public class FindAdapter extends BaseAdapter {
     User user, my;
     String key;
     final String star;
+    ArrayList<String> idList = new ArrayList<String>();
 
     public FindAdapter(ArrayList<User> userList, User user, String key) {
         this.userList = userList;
@@ -54,7 +55,6 @@ public class FindAdapter extends BaseAdapter {
         TextView findUser = find.findViewById(R.id.findUser);
         TextView findGit = find.findViewById(R.id.findGit);
         Button findBtn = find.findViewById(R.id.findBtn);
-        ArrayList<String> idList = new ArrayList<String>();
         DatabaseReference database = FirebaseDatabase.getInstance().getReference("users");
         database.orderByChild("userId").equalTo(userList.get(i).getUserId()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -64,12 +64,16 @@ public class FindAdapter extends BaseAdapter {
                     findUser.setText(user.getUserId());
                     findGit.setText(user.getGithubId());
                     idList.add(user.getUserId());
+                    if (my.getStar().contains(user.getUserId())){
+                        findBtn.setVisibility(View.INVISIBLE);
+                    }
                 }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+
         findBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
