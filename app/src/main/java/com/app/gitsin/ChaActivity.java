@@ -39,6 +39,9 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
         key = intent.getStringExtra("key");
         final String TAG = "FIREBASE";
 
+        chaIVPerson = findViewById(R.id.chaIVPerson);
+        chaIVGroup = findViewById(R.id.chaIVGroup);
+
         //현재 챌린지 참여 여부 확인해서 참여중인 경우 이미지 변경
         if (user.getChaGroup() == 1){ chaIVGroup.setImageResource(R.drawable.cha_group); }
         if (user.getChaPerson() == 1){ chaIVPerson.setImageResource(R.drawable.cha_personal); }
@@ -52,13 +55,7 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
                 //리스트 저장
                 for (DataSnapshot data : snapshot.getChildren()) {
                     ChaDTO a = data.getValue(ChaDTO.class);
-                    Log.d("파베 DB",a.toString());
-
-                    ChaDTO b = new ChaDTO(a.getCategory(), a.getLimit(), a.getName(), a.getParticipants(),a.getStartDate());
-                    Log.d("파베 DB",b.toString());
-
-                    boolean c = chaDTOs.add(b);
-                    Log.d("파베 DB2",chaDTOs.get(0).getCategory());
+                    chaDTOs.add(a);
                 }
 
                 //DTO -> ChaListItem 데이터 가공
@@ -74,16 +71,13 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
                 Log.d("파베 어댑터", "데이터 가공 끝");
 
                 ListView listView = findViewById(R.id.chaListView);
-                ChaAdapter adapter = new ChaAdapter(chaListItems);
+                ChaAdapter adapter = new ChaAdapter(chaListItems, chaDTOs, user, key);
                 listView.setAdapter(adapter);
 
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) { }
         });
-
-
-
 
         //하단 메뉴
         b1 = findViewById(R.id.menu3Pro);
@@ -96,28 +90,6 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
         b3.setOnClickListener(this);
         b4.setOnClickListener(this);
         b5.setOnClickListener(this);
-    }
-
-    public void testDBConnect() {
-        final String TAG = "FireBase>>";
-        database = FirebaseDatabase.getInstance().getReference();
-        Log.d(TAG, database + " ");
-        database.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.d(TAG, "user 아래의 자식들의 개수: " + snapshot.getChildrenCount());
-                Log.d(TAG, "전체 json 목록 가지고 온 것:" + snapshot.getChildren());
-                for (DataSnapshot snapshot1: snapshot.getChildren()){
-                    Log.d(TAG, "하나의 snapshot:" + snapshot1);
-                    Log.d(TAG, "하나의 snapshot value:" + snapshot1.getValue());
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.d(TAG, error.getMessage());
-            }
-        });
-
     }
 
     @Override
