@@ -15,15 +15,10 @@
         <activity android:name=".Find" />
         <activity android:name=".Sign" />
         <activity android:name=".FriendsActivity" />
-        <activity android:name=".GuildActivity" />
+        <activity android:name=".StatsActivity" />
         <activity android:name=".ChaActivity" />
         <activity android:name=".HoFActivity" />
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Login">
             <intent-filter>
