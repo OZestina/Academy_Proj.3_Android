@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -13,17 +14,21 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ImageButton b1, b2, b3, b4, b5;
+    ImageButton b1, b2, b3, b4, b5, settingBtn;
     DatabaseReference database;
     TextView idView, signDateView;
     User user;
+    String key;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ThemeUtil.applyTheme(ThemeUtil.darkLoad(getApplicationContext()));
 
         Intent intent = getIntent();
         user = (User)intent.getSerializableExtra("info");
+        key = intent.getStringExtra("key");
 
         b1 = findViewById(R.id.menu1Pro);
         b2 = findViewById(R.id.menu1Hof);
@@ -41,6 +46,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         database = FirebaseDatabase.getInstance().getReference("users");
         idView.setText(user.getUserId());
         signDateView.setText(user.getSignDate() + "일에 가입");
+
+        settingBtn = findViewById(R.id.settingBtn);
+        settingBtn.setOnClickListener(this);
+
     }
 
     @Override
@@ -59,12 +68,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.menu1Friends :
                 a = FriendsActivity.class;
                 break;
+            case R.id.settingBtn:
+                a = Setting.class;
+                break;
             default :
                 a = MainActivity.class;
                 break;
         }
         Intent intent = new Intent(MainActivity.this, a);
         intent.putExtra("info", user);
+        intent.putExtra("key", key);
         startActivity(intent);
     }
 

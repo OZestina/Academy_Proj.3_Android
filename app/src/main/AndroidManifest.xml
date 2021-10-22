@@ -18,6 +18,7 @@
         <activity android:name=".StatsActivity" />
         <activity android:name=".ChaActivity" />
         <activity android:name=".HoFActivity" />
+        <activity android:name=".Setting" />
         <activity android:name=".MainActivity">
         </activity>
         <activity android:name=".Login">

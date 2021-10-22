@@ -19,10 +19,14 @@ public class HoFActivity extends AppCompatActivity implements View.OnClickListen
     SqliteHelper sqliteHelper;
     User user;
     HoFListItem item;
+    String key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        Intent intent = getIntent();
+        user = (User)intent.getSerializableExtra("info");
+        key = intent.getStringExtra("key");
         final String TAG = "FIREBASE";
 
         sqliteHelper = new SqliteHelper(this);
@@ -127,6 +131,7 @@ public class HoFActivity extends AppCompatActivity implements View.OnClickListen
                 break;
         }
         intent.putExtra("info", user);
+        intent.putExtra("key", key);
         startActivity(intent);
     }
 

@@ -86,6 +86,7 @@ public class Login extends AppCompatActivity {
 
                                 Intent intent = new Intent(Login.this, MainActivity.class);
                                 intent.putExtra("info", user);
+                                intent.putExtra("key", userKey);
                                 startActivity(intent);
                             }else {
                                 loginResult.setText("비밀번호가 틀렸습니다.");
