@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ImageButton b1, b2, b3, b4, b5;
     ImageView settingBtn;
     DatabaseReference database;
-    TextView idView, signDateView;
+    TextView idView, signDateView, gitIdView;
     User user;
     String key;
 
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         b4 = findViewById(R.id.menu1Stats);
         b5 = findViewById(R.id.menu1Friends);
         idView = findViewById(R.id.idView);
+        gitIdView = findViewById(R.id.gitIdView);
         signDateView = findViewById(R.id.signDateView);
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         database = FirebaseDatabase.getInstance().getReference("users");
         idView.setText(user.getUserId());
+        gitIdView.setText(user.getGithubId());
         signDateView.setText(user.getSignDate() + "일에 가입");
 
         settingBtn = findViewById(R.id.settingBtn);
