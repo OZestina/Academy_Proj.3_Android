@@ -8,10 +8,10 @@
     tools:context=".FriendsActivity">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
+        android:layout_height="600dp"
         android:layout_margin="10dp"
-        android:layout_height="600dp">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
@@ -24,17 +24,19 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
-                <ImageButton
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
                     android:id="@+id/findBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="right"
-                    android:background="#FFFFFF"
+                    android:layout_margin="10dp"
+                    android:padding="0dp"
                     app:srcCompat="@android:drawable/ic_menu_search" />
 
                 <ListView
@@ -51,33 +53,38 @@
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
         <ImageButton
             android:id="@+id/menu5Pro"
             android:layout_width="82dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/ic_launcher_foreground"
             tools:ignore="VectorDrawableCompat" />
+
         <ImageButton
             android:id="@+id/menu5Hof"
             android:layout_width="82dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/ic_launcher_foreground"
             tools:ignore="VectorDrawableCompat" />
+
         <ImageButton
             android:id="@+id/menu5Challenge"
             android:layout_width="82dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/ic_launcher_foreground"
             tools:ignore="VectorDrawableCompat" />
+
         <ImageButton
             android:id="@+id/menu5Stats"
             android:layout_width="82dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/ic_launcher_foreground"
             tools:ignore="VectorDrawableCompat" />
+
         <ImageButton
             android:id="@+id/menu5Friends"
             android:layout_width="82dp"

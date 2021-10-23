@@ -1,5 +1,6 @@
 package com.app.gitsin;
 
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
@@ -23,7 +24,7 @@ public class FindAdapter extends BaseAdapter {
     ArrayList<User> userList;
     User user, my;
     String key;
-    final String star;
+    String star;
     ArrayList<String> idList = new ArrayList<String>();
 
     public FindAdapter(ArrayList<User> userList, User user, String key) {
@@ -77,12 +78,12 @@ public class FindAdapter extends BaseAdapter {
         findBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String star1 = star + idList.get(i) + ",";  //user가 최종값으로 저장되서 버튼 3개다 cc로 추가됨. 수정해야함
-                my.setStar(star1);
+                star = star + idList.get(i) + ",";  //user가 최종값으로 저장되서 버튼 3개다 cc로 추가됨. 수정해야함
+                my.setStar(star);
                 database.child(key).setValue(my).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d("ssss","3번");
+                            findBtn.setVisibility(View.INVISIBLE);
                     }
                 });
             }

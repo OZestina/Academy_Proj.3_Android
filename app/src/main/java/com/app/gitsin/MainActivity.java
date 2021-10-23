@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
@@ -14,7 +15,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ImageButton b1, b2, b3, b4, b5, settingBtn;
+    ImageButton b1, b2, b3, b4, b5;
+    ImageView settingBtn;
     DatabaseReference database;
     TextView idView, signDateView;
     User user;

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.google.firebase.database.DatabaseReference;
@@ -14,7 +15,8 @@ import java.util.ArrayList;
 
 public class FriendsActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ImageButton b1, b2, b3, b4, b5, findBtn;
+    ImageButton b1, b2, b3, b4, b5;
+    ImageView findBtn;
     DatabaseReference database;
     User user;
     String key;
