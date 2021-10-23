@@ -40,19 +40,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         idView = findViewById(R.id.idView);
         gitIdView = findViewById(R.id.gitIdView);
         signDateView = findViewById(R.id.signDateView);
+        settingBtn = findViewById(R.id.settingBtn);
+
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
         b3.setOnClickListener(this);
         b4.setOnClickListener(this);
         b5.setOnClickListener(this);
+        settingBtn.setOnClickListener(this);
 
-        database = FirebaseDatabase.getInstance().getReference("users");
         idView.setText(user.getUserId());
         gitIdView.setText(user.getGithubId());
         signDateView.setText(user.getSignDate() + "일에 가입");
-
-        settingBtn = findViewById(R.id.settingBtn);
-        settingBtn.setOnClickListener(this);
 
     }
 

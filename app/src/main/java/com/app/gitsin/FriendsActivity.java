@@ -38,6 +38,7 @@ public class FriendsActivity extends AppCompatActivity implements View.OnClickLi
         b3.setOnClickListener(this);
         b4.setOnClickListener(this);
         b5.setOnClickListener(this);
+        findBtn.setOnClickListener(this);
 
         ArrayList<String> idList = new ArrayList<String>();
         String[] starList = user.getStar().split(",");
@@ -45,18 +46,9 @@ public class FriendsActivity extends AppCompatActivity implements View.OnClickLi
             idList.add(i);
         }
         ListView listView = findViewById(R.id.starListView);
-        StarAdapter adapter = new StarAdapter(idList);
+        StarAdapter adapter = new StarAdapter(idList, user, key);
         listView.setAdapter(adapter);
 
-        findBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(FriendsActivity.this, Find.class);
-                intent.putExtra("info", user);
-                intent.putExtra("key", key);
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
@@ -74,6 +66,9 @@ public class FriendsActivity extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.menu5Stats :
                 intent = new Intent(FriendsActivity.this, StatsActivity.class);
+                break;
+            case R.id.findBtn :
+                intent = new Intent(FriendsActivity.this, Find.class);
                 break;
             default :
                 intent = new Intent(FriendsActivity.this, FriendsActivity.class);

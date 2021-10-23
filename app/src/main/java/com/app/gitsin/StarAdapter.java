@@ -1,6 +1,7 @@
 package com.app.gitsin;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -19,11 +20,14 @@ import java.util.ArrayList;
 
 public class StarAdapter extends BaseAdapter {
     ArrayList<String> idList;
-    User user;
+    User user, my;
     String key;
+    ArrayList<User> userList = new ArrayList<User>();
 
-    public StarAdapter(ArrayList<String> idList) {
+    public StarAdapter(ArrayList<String> idList, User user, String key) {
         this.idList = idList;
+        my = user;
+        this.key = key;
     }
 
     @Override
@@ -56,7 +60,7 @@ public class StarAdapter extends BaseAdapter {
                     user = snapshot1.getValue(User.class);
                     starUser.setText(user.getUserId());
                     starGit.setText(user.getGithubId());
-                    key = snapshot1.getKey();
+                    userList.add(user);
                 }
             }
             @Override
@@ -66,6 +70,11 @@ public class StarAdapter extends BaseAdapter {
         starBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(context, profile.class);
+                intent.putExtra("info2", userList.get(i));
+                intent.putExtra("info", my);
+                intent.putExtra("key", key);
+                ((FriendsActivity)context).startActivity(intent);
             }
         });
         return star;
