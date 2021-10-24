@@ -16,9 +16,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     ImageButton b1, b2, b3, b4, b5;
-    ImageView settingBtn;
-    DatabaseReference database;
-    TextView idView, signDateView, gitIdView;
+    ImageView settingBtn, todayCheck;
+    TextView idView, signDateView, gitIdView, todayCheckMsg, streakCheckMsg;
     User user;
     String key;
 
@@ -41,7 +40,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         gitIdView = findViewById(R.id.gitIdView);
         signDateView = findViewById(R.id.signDateView);
         settingBtn = findViewById(R.id.settingBtn);
-
+        todayCheck = findViewById(R.id.todayCheck);
+        todayCheckMsg = findViewById(R.id.todayCheckMsg);
+        streakCheckMsg = findViewById(R.id.streakCheckMsg);
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
         b3.setOnClickListener(this);
@@ -52,6 +53,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         idView.setText(user.getUserId());
         gitIdView.setText(user.getGithubId());
         signDateView.setText(user.getSignDate() + "일에 가입");
+        if (user.getTodayCount()==1){
+            todayCheck.setImageResource(android.R.drawable.presence_online);
+            todayCheckMsg.setVisibility(View.INVISIBLE);
+        }
+        streakCheckMsg.setText(user.getStreakToday()+"일 연속 업로드중입니다.");
+
 
     }
 

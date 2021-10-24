@@ -50,8 +50,10 @@ public class Find extends AppCompatActivity implements View.OnClickListener {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 arrayList.clear();
                 for (DataSnapshot snapshot1 : snapshot.getChildren()) {
-                    User user = snapshot1.getValue(User.class);
-                    arrayList.add(user);
+                    User user2 = snapshot1.getValue(User.class);
+                    if(!user.getUserId().equals(user2.getUserId())){
+                        arrayList.add(user2);
+                    }
                 }
                 i = arrayList.size();
                 ListView listView = findViewById(R.id.findListView);
@@ -62,8 +64,6 @@ public class Find extends AppCompatActivity implements View.OnClickListener {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-
-
 
     }
 

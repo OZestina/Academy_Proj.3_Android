@@ -88,7 +88,7 @@ public class Login extends AppCompatActivity {
                                 database.child(userKey).setValue(user);
                                 done.set(true);
                                 if (done.get()){
-                                    Log.d("========================", "done이 true값");
+                                    Log.d("=================", "done이 true값");
                                 }
 
                                 // SQLite3 추가 부분 (10.20 19:48)
