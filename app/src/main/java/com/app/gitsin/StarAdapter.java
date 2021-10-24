@@ -76,7 +76,7 @@ public class StarAdapter extends BaseAdapter {
         starBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, profile.class);
+                Intent intent = new Intent(context, Profile.class);
                 intent.putExtra("info2", userList.get(i));
                 intent.putExtra("info", my);
                 intent.putExtra("key", key);
