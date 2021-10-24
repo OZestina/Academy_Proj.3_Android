@@ -128,9 +128,9 @@ public class StatsActivity extends AppCompatActivity implements View.OnClickList
                 ValueAnimator animator3 = ValueAnimator.ofInt(0, stars / (int) snapshots.getChildrenCount());
 
                 // 지속시간
-                animator1.setDuration(500);
-                animator2.setDuration(500);
-                animator3.setDuration(500);
+                animator1.setDuration(1000);
+                animator2.setDuration(1000);
+                animator3.setDuration(1000);
 
                 // 애니메이션 리스너
                 animator1.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
