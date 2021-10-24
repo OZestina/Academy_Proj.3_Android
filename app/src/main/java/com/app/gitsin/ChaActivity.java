@@ -3,10 +3,12 @@ package com.app.gitsin;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -24,6 +26,7 @@ import java.util.ArrayList;
 public class ChaActivity extends AppCompatActivity implements View.OnClickListener {
 
     ImageButton b1, b2, b3, b4, b5;
+    Button chaBtn;
     ImageView chaIVPerson, chaIVGroup;
     DatabaseReference database;
     User user;
@@ -37,7 +40,6 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
         Intent intent = getIntent();
         user = (User)intent.getSerializableExtra("info");
         key = intent.getStringExtra("key");
-        final String TAG = "FIREBASE";
 
         chaIVPerson = findViewById(R.id.chaIVPerson);
         chaIVGroup = findViewById(R.id.chaIVGroup);
@@ -60,7 +62,7 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
 
                 //DTO -> ChaListItem 데이터 가공
                 ArrayList<ChaListItem> chaListItems = new ArrayList<>();
-                Log.d("파베 어댑터", "데이터 가공 시작");
+//                Log.d("파베 어댑터", "데이터 가공 시작");
                 for (ChaDTO dto : chaDTOs) {
                     //chaPart format: (String) 1/10
                     int participants = (dto.getParticipants() != null) ? dto.getParticipants().split(",").length : 0;
@@ -68,7 +70,7 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
 
                     chaListItems.add(new ChaListItem(dto.getName(),dto.getCategory(),dto.getStartDate(),chaPart));
                 }
-                Log.d("파베 어댑터", "데이터 가공 끝");
+//                Log.d("파베 어댑터", "데이터 가공 끝");
 
                 ListView listView = findViewById(R.id.chaListView);
                 ChaAdapter adapter = new ChaAdapter(chaListItems, chaDTOs, user, key);
@@ -77,6 +79,14 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) { }
+        });
+
+        chaBtn = findViewById(R.id.chaBtn);
+        chaBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                refresh();
+            }
         });
 
         //하단 메뉴
@@ -91,6 +101,13 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
         b4.setOnClickListener(this);
         b5.setOnClickListener(this);
     }
+
+    public void refresh () {
+        finish();
+        Intent intent1 = getIntent();
+        startActivity(intent1);
+    }
+
 
     @Override
     public void onClick(View view) {
@@ -116,6 +133,7 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
         intent.putExtra("key", key);
         startActivity(intent);
     }
+
 
 }
 
