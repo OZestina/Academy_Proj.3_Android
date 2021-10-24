@@ -40,7 +40,6 @@ public class profile extends AppCompatActivity implements View.OnClickListener {
         idView = findViewById(R.id.idView2);
         gitIdView = findViewById(R.id.gitIdView2);
         signDateView = findViewById(R.id.signDateView2);
-        settingBtn = findViewById(R.id.settingBtn2);
 
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
@@ -53,12 +52,6 @@ public class profile extends AppCompatActivity implements View.OnClickListener {
         gitIdView.setText(user2.getGithubId());
         signDateView.setText(user2.getSignDate() + "일에 가입");
 
-        settingBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
 
     }
 

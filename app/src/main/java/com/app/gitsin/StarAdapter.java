@@ -53,20 +53,26 @@ public class StarAdapter extends BaseAdapter {
         TextView starGit = star.findViewById(R.id.starGit);
         Button starBtn = star.findViewById(R.id.starBtn);
         DatabaseReference database = FirebaseDatabase.getInstance().getReference("users");
-        database.orderByChild("userId").equalTo(idList.get(i)).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot snapshot1 : snapshot.getChildren()) {
-                    user = snapshot1.getValue(User.class);
-                    starUser.setText(user.getUserId());
-                    starGit.setText(user.getGithubId());
-                    userList.add(user);
+        if(idList.get(0).equals("")){
+            starUser.setText("즐겨찾기가 없습니다.");
+            starGit.setVisibility(View.INVISIBLE);
+            starBtn.setVisibility(View.INVISIBLE);
+        }else{
+            database.orderByChild("userId").equalTo(idList.get(i)).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                        user = snapshot1.getValue(User.class);
+                        starUser.setText(user.getUserId());
+                        starGit.setText(user.getGithubId());
+                        userList.add(user);
+                    }
                 }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                }
+            });
+        }
         starBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

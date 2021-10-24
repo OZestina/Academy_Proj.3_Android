@@ -51,15 +51,6 @@
                         android:textSize="18sp" />
 
 
-                    <Button
-                        android:id="@+id/settingBtn2"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginLeft="30dp"
-                        android:padding="0dp"
-                        android:text="즐겨찾기 해제" />
                 </LinearLayout>
 
                 <TextView

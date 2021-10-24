@@ -1,12 +1,10 @@
 package com.app.gitsin;
 
-import android.app.FragmentTransaction;
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -26,6 +24,7 @@ public class FindAdapter extends BaseAdapter {
     String key;
     String star;
     ArrayList<String> idList = new ArrayList<String>();
+    Boolean check = true;
 
     public FindAdapter(ArrayList<User> userList, User user, String key) {
         this.userList = userList;
@@ -55,7 +54,7 @@ public class FindAdapter extends BaseAdapter {
         View find = View.inflate(context, R.layout.item_find, null);
         TextView findUser = find.findViewById(R.id.findUser);
         TextView findGit = find.findViewById(R.id.findGit);
-        Button findBtn = find.findViewById(R.id.findBtn);
+        ImageView findBtn = find.findViewById(R.id.findBtn);
         DatabaseReference database = FirebaseDatabase.getInstance().getReference("users");
         database.orderByChild("userId").equalTo(userList.get(i).getUserId()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -66,7 +65,9 @@ public class FindAdapter extends BaseAdapter {
                     findGit.setText(user.getGithubId());
                     idList.add(user.getUserId());
                     if (my.getStar().contains(user.getUserId())){
-                        findBtn.setVisibility(View.INVISIBLE);
+                        //findBtn.setVisibility(View.INVISIBLE);
+                        findBtn.setImageResource(android.R.drawable.btn_star_big_off);
+                        check=false;
                     }
                 }
             }
@@ -78,14 +79,29 @@ public class FindAdapter extends BaseAdapter {
         findBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                star = star + idList.get(i) + ",";  //user가 최종값으로 저장되서 버튼 3개다 cc로 추가됨. 수정해야함
-                my.setStar(star);
-                database.child(key).setValue(my).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                            findBtn.setVisibility(View.INVISIBLE);
-                    }
-                });
+                if (check){
+                    star = star + idList.get(i) + ",";
+                    my.setStar(star);
+                    database.child(key).setValue(my).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            //findBtn.setVisibility(View.INVISIBLE);
+                            findBtn.setImageResource(android.R.drawable.btn_star_big_off);
+                            check=false;
+                        }
+                    });
+                }else {
+                    star = star.replace((idList.get(i) + ","), "");
+                    my.setStar(star);
+                    database.child(key).setValue(my).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            //findBtn.setVisibility(View.INVISIBLE);
+                            findBtn.setImageResource(android.R.drawable.btn_star_big_on);
+                            check=true;
+                        }
+                    });
+                }
             }
         });
         return find;
