@@ -1,5 +1,6 @@
 package com.app.gitsin;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -92,8 +94,13 @@ public class HoFAdapter extends BaseAdapter {
         hofImage.setImageResource(drawable);
         hofTitle.setText(title);
         hofDetail.setText(detail);
-        hofBar.setProgress(progress);
         hofBar.setMax(max);
+        hofBar.setProgress(progress);
+        if (progress >= max) {
+            hofBar.setVisibility(View.INVISIBLE);
+            hofCount.setTextSize(15);
+            hofCount.setTextColor(Color.parseColor("#FF0000"));
+        }
         hofCount.setText(count);
 
         convertView.setOnTouchListener(new View.OnTouchListener() {
