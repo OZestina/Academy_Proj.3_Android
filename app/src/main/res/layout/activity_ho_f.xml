@@ -44,7 +44,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="완료"
-                        android:textColor="@color/black"
                         android:textSize="15sp"
                         android:textStyle="bold" />
                     <TextView
@@ -73,7 +72,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="진행중"
-                        android:textColor="@color/black"
                         android:textSize="15sp"
                         android:textStyle="bold" />
                     <TextView
@@ -86,13 +84,22 @@
             </LinearLayout>
         </LinearLayout>
 
-        <ListView
-            android:id="@+id/hofListView"
-            android:divider="@color/lightgrey"
-            android:dividerHeight="1dp"
-            android:overScrollMode="never"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/swiperefresh"
             android:layout_width="match_parent"
-            android:layout_height="470dp"/>
+            android:layout_height="match_parent">
+
+            <ListView
+                android:id="@+id/hofListView"
+                android:divider="@color/lightgrey"
+                android:dividerHeight="1dp"
+                android:overScrollMode="never"
+                android:layout_width="match_parent"
+                android:layout_height="470dp"/>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
     </LinearLayout>
 
