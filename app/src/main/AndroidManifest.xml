@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GitSin"
         android:usesCleartextTraffic="true">
+        <activity android:name=".profile"></activity>
         <activity android:name=".Find" />
         <activity android:name=".Sign" />
         <activity android:name=".FriendsActivity" />

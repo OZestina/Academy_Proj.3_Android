@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Login extends AppCompatActivity {
 
@@ -33,6 +35,10 @@ public class Login extends AppCompatActivity {
     Button loginBtn, signBtn;
     EditText id, pw;
     TextView loginResult;
+
+    String userKey;
+    User user;
+    AtomicBoolean done = new AtomicBoolean(false);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +53,8 @@ public class Login extends AppCompatActivity {
         pw = findViewById(R.id.inPw);
         loginResult = findViewById(R.id.loginResult);
 
+
+
         database = FirebaseDatabase.getInstance().getReference("users");
         Log.d("파이어베이스>> ", database + " ");
 
@@ -60,8 +68,8 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot snapshot1 : snapshot.getChildren()) {
-                            User user = snapshot1.getValue(User.class);
-                            String userKey = snapshot1.getKey();
+                            user = snapshot1.getValue(User.class);
+                            userKey = snapshot1.getKey();
                             if(userPw.equals(user.getUserPw())){
 
                                 //Crawling 내용 FireBase 저장
@@ -78,34 +86,37 @@ public class Login extends AppCompatActivity {
 //                                Log.d("crawling값3",user.toString());
 
                                 database.child(userKey).setValue(user);
+                                done.set(true);
+                                if (done.get()){
+                                    Log.d("========================", "done이 true값");
+                                }
 
                                 // SQLite3 추가 부분 (10.20 19:48)
                                 SQLiteDatabase sqlDB = sqliteHelper.getWritableDatabase();
                                 sqliteHelper.onCreate(sqlDB);
                                 sqlDB.close();
 
-                                Intent intent = new Intent(Login.this, MainActivity.class);
-                                intent.putExtra("info", user);
-                                intent.putExtra("key", userKey);
-                                startActivity(intent);
                             }else {
                                 loginResult.setText("비밀번호가 틀렸습니다.");
                             }
                         }
-//                        Log.d("파이어베이스>> ", userId + ": userId 상세정보: " + snapshot.getValue().toString().replace("[null, {userPw=", "").split(",")[0]);
-//                        if(userPw.equals(snapshot.getValue().toString().replace("[null, {userPw=", "").split(",")[0])){
-//                            Intent intent = new Intent(Login.this, MainActivity.class);
-//                            intent.putExtra("id", userId);
-//                            startActivity(intent);
-//                        }else {
-//                            loginResult.setText("비밀번호가 틀렸습니다.");
-//                        }
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
                         Log.d("파이어베이스>> ", userId + ": userId 없음");
                     }
-                });
+                });//end of addValueEventListener
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        while (done.get() != true) { Log.d("","DONE값 없음");}
+                        Intent intent = new Intent(Login.this, MainActivity.class);
+                        intent.putExtra("info", user);
+                        intent.putExtra("key", userKey);
+                        startActivity(intent);
+                    }
+                }, 1000);
             }
         });
         signBtn.setOnClickListener(new View.OnClickListener() {

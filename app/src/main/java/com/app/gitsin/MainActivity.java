@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
@@ -14,9 +15,10 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ImageButton b1, b2, b3, b4, b5, settingBtn;
+    ImageButton b1, b2, b3, b4, b5;
+    ImageView settingBtn;
     DatabaseReference database;
-    TextView idView, signDateView;
+    TextView idView, signDateView, gitIdView;
     User user;
     String key;
 
@@ -36,19 +38,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         b4 = findViewById(R.id.menu1Stats);
         b5 = findViewById(R.id.menu1Friends);
         idView = findViewById(R.id.idView);
+        gitIdView = findViewById(R.id.gitIdView);
         signDateView = findViewById(R.id.signDateView);
+        settingBtn = findViewById(R.id.settingBtn);
+
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
         b3.setOnClickListener(this);
         b4.setOnClickListener(this);
         b5.setOnClickListener(this);
-
-        database = FirebaseDatabase.getInstance().getReference("users");
-        idView.setText(user.getUserId());
-        signDateView.setText(user.getSignDate() + "일에 가입");
-
-        settingBtn = findViewById(R.id.settingBtn);
         settingBtn.setOnClickListener(this);
+
+        idView.setText(user.getUserId());
+        gitIdView.setText(user.getGithubId());
+        signDateView.setText(user.getSignDate() + "일에 가입");
 
     }
 
