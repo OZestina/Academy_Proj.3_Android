@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -62,7 +63,8 @@ public class HoFActivity extends AppCompatActivity implements View.OnClickListen
         // 어댑터에 끼울 어레이리스트 data
         ArrayList<HoFListItem> data = new ArrayList<>();
         // 계정별 친구목록 aa,bb,cc, 형식 string "," split 후 갯수 = stars
-        int stars = user.getStar().split(",").length;
+        int stars = (user.getStar().length() == 0) ? 0 : user.getStar().split(",").length;
+        Log.d(TAG, "친구 : " + user.getStar() + "       친구수 : " + stars);
 
         // data 어레이리스트에 HoFListItem 객체 item을 list 길이만큼 반복하여 add
         for (int i = 0; i < list.size(); i++) {

@@ -21,14 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:text="이곳에 내용을 넣으세요."
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </ScrollView>
+
 
     </LinearLayout>
 
