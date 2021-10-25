@@ -33,7 +33,6 @@ public class StatsActivity extends AppCompatActivity implements View.OnClickList
     DatabaseReference database;
     String key;
     User user;
-    String userId;
     TextView total1, total2, total3;
     TabHost tabHost;
     ListView streakLV, starLV, singleLV, groupLV;
@@ -42,7 +41,6 @@ public class StatsActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent = getIntent();
         user = (User) intent.getSerializableExtra("info");
-        userId = user.getUserId();
         key = intent.getStringExtra("key");
 
         super.onCreate(savedInstanceState);
@@ -177,10 +175,10 @@ public class StatsActivity extends AppCompatActivity implements View.OnClickList
                 ArrayList<Map> groupRanked = getRank(stats, 4);
 
                 // arrayList를 입력하여 어댑터 호출
-                StatsAdapter adapter1 = new StatsAdapter(streakRanked, userId);
-                StatsAdapter adapter2 = new StatsAdapter(starRanked, userId);
-                StatsAdapter adapter3 = new StatsAdapter(singleRanked, userId);
-                StatsAdapter adapter4 = new StatsAdapter(groupRanked, userId);
+                StatsAdapter adapter1 = new StatsAdapter(streakRanked, user.getUserId());
+                StatsAdapter adapter2 = new StatsAdapter(starRanked, user.getUserId());
+                StatsAdapter adapter3 = new StatsAdapter(singleRanked, user.getUserId());
+                StatsAdapter adapter4 = new StatsAdapter(groupRanked, user.getUserId());
 
                 // 존재하는 ListView에 어댑터를 껴준다.
                 streakLV.setAdapter(adapter1);
