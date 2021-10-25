@@ -3,6 +3,8 @@ package com.app.gitsin;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -42,8 +44,6 @@ public class StatsActivity extends AppCompatActivity implements View.OnClickList
         user = (User) intent.getSerializableExtra("info");
         userId = user.getUserId();
         key = intent.getStringExtra("key");
-
-        final String TAG = "FIREBASE";
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats);
@@ -100,6 +100,22 @@ public class StatsActivity extends AppCompatActivity implements View.OnClickList
         // 첫 시작 tab
         tabHost.setCurrentTabByTag("tab1");
 
+        fetchData();
+    }
+
+    // 위로 스와이프 리프레시
+    private void refresh(SwipeRefreshLayout layout) {
+        layout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                fetchData();
+                // false로 호출 안하면 새로고침 아이콘이 사라지지 않는다.
+                layout.setRefreshing(false);
+            }
+        });
+    }
+
+    private void fetchData() {
         database = FirebaseDatabase.getInstance().getReference("users");
         database.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -108,7 +124,7 @@ public class StatsActivity extends AppCompatActivity implements View.OnClickList
                 int count = 0;
                 // children 개수만큼의 Stats 클래스 배열
                 Stats[] stats = new Stats[(int) snapshots.getChildrenCount()];
-                // 누적용 stars, streaks 변수
+                // 누적용 stars, streaks 변수 초기화
                 int stars = 0;
                 int streaks = 0;
                 for (DataSnapshot snapshot : snapshots.getChildren()) {
@@ -123,9 +139,9 @@ public class StatsActivity extends AppCompatActivity implements View.OnClickList
                 }
 
                 // 숫자 애니메이션 (0부터 지정값까지)
-                ValueAnimator animator1 = ValueAnimator.ofInt(0, (int) snapshots.getChildrenCount());
-                ValueAnimator animator2 = ValueAnimator.ofInt(0, streaks / (int) snapshots.getChildrenCount());
-                ValueAnimator animator3 = ValueAnimator.ofInt(0, stars / (int) snapshots.getChildrenCount());
+                ValueAnimator animator1 = ValueAnimator.ofInt(0, (int)snapshots.getChildrenCount());
+                ValueAnimator animator2 = ValueAnimator.ofInt(0, streaks / (int)snapshots.getChildrenCount());
+                ValueAnimator animator3 = ValueAnimator.ofInt(0, stars / (int)snapshots.getChildrenCount());
 
                 // 지속시간
                 animator1.setDuration(1000);
@@ -177,29 +193,15 @@ public class StatsActivity extends AppCompatActivity implements View.OnClickList
                 SwipeRefreshLayout swipe3 = findViewById(R.id.stats_swipe3);
                 SwipeRefreshLayout swipe4 = findViewById(R.id.stats_swipe4);
 
-                refresh(swipe1, adapter1);
-                refresh(swipe2, adapter2);
-                refresh(swipe3, adapter3);
-                refresh(swipe4, adapter4);
+                refresh(swipe1);
+                refresh(swipe2);
+                refresh(swipe3);
+                refresh(swipe4);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-    }
-
-    // 위로 스와이프 리프레시
-    private void refresh(SwipeRefreshLayout layout, StatsAdapter adapter) {
-        layout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                // 어댑터 새로고침
-                adapter.notifyDataSetChanged();
-                // false로 호출 안하면 새로고침 아이콘이 사라지지 않는다.
-                layout.setRefreshing(false);
+                Log.d("FIREBASE", error.getMessage());
             }
         });
     }
@@ -214,7 +216,7 @@ public class StatsActivity extends AppCompatActivity implements View.OnClickList
                     return Integer.compare(t.getMaxStreak(), t1.getMaxStreak());
                 }
             });
-            for (int i = 1; i <= rankSize ; i++) {
+            for (int i = 1; i <= rankSize; i++) {
                 int index = stats.length - i;
                 Map<String, String> map = new HashMap<>();
                 map.put("userId", stats[index].getUserId());

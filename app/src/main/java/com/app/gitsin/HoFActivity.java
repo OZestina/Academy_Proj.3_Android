@@ -1,5 +1,6 @@
 package com.app.gitsin;
 
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,10 +12,18 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
+import java.util.Map;
 
 public class HoFActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -22,6 +31,9 @@ public class HoFActivity extends AppCompatActivity implements View.OnClickListen
     SqliteHelper sqliteHelper;
     User user;
     String key;
+    DatabaseReference database;
+    TextView completeT, ingT;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,74 +63,98 @@ public class HoFActivity extends AppCompatActivity implements View.OnClickListen
         b4.setOnClickListener(this);
         b5.setOnClickListener(this);
 
-        // 업적 관련 반복문에 사용될 i 최대값
-        final int streakBASED = 3;
-        final int starBASED = 6;
-        final int chaSingleBASED = 8;
-        final int chaTeamBASED = 10;
-
-        // sqlite에서 읽어온 업적 정보 list
-        ArrayList<HoFAchievement> list = hofReadSqlite();
-
-        // 어댑터에 끼울 어레이리스트 data
-        ArrayList<HoFListItem> data = new ArrayList<>();
-        // 계정별 친구목록 aa,bb,cc, 형식 string "," split 후 갯수 = stars
-        int stars = (user.getStar().length() == 0) ? 0 : user.getStar().split(",").length;
-
-        // data 어레이리스트에 HoFListItem 객체 item을 list 길이만큼 반복하여 add
-        for (int i = 0; i < list.size(); i++) {
-            int drawableId = getApplicationContext().getResources().getIdentifier(list.get(i).getAchDrawable(),
-                    "drawable", getApplicationContext().getPackageName());
-            // 업적별 이미지 소스, 업적 타이틀, 업적 정보
-            HoFListItem item = new HoFListItem(drawableId,
-                    list.get(i).getAchTitle(), list.get(i).getAchDetail());
-            // 업적 분야별로 현재값/최대값 set
-            if (i < streakBASED) {
-                item.setNowMax(user.getMaxStreak(), list.get(i).getAchMax());
-            } else if (i < starBASED) {
-                item.setNowMax(stars, list.get(i).getAchMax());
-            } else if (i < chaSingleBASED) {
-                item.setNowMax(user.getChaPersonDone(), list.get(i).getAchMax());
-            } else if (i < chaTeamBASED) {
-                item.setNowMax(user.getChaGroupDone(), list.get(i).getAchMax());
-            }
-            // data 어레이리스트에 item 추가
-            data.add(item);
-        }
-
-        // 완료, 진행 중 카운터
-        int countComplete = 0;
-        int countIng = 0;
-        for (int i = 0; i < data.size(); i++) {
-            // data에 들어있는 item 하나씩 값을 가져와 각각 더해준다.
-            countComplete += data.get(i).getAchComplete();
-            countIng += data.get(i).getAchIng();
-        }
-
-        // 카운터를 setText
-        TextView completeT = findViewById(R.id.hofCompleteT);
-        TextView ingT = findViewById(R.id.hofIngT);
-        completeT.setText(String.valueOf(countComplete));
-        ingT.setText(String.valueOf(countIng));
-
         // 현재 activity layout에 존재하는 ListView 객체화
-        ListView listView = findViewById(R.id.hofListView);
-        HoFAdapter adapter = new HoFAdapter(data);
-        // 어댑터를 껴준다.
-        listView.setAdapter(adapter);
+        listView = findViewById(R.id.hofListView);
 
-        // 위로 스와이프 리프레시
-        SwipeRefreshLayout swipeRefreshLayout = findViewById(R.id.swiperefresh);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        completeT = findViewById(R.id.hofCompleteT);
+        ingT = findViewById(R.id.hofIngT);
+
+        fetchData();
+    }
+
+    private void fetchData() {
+        database = FirebaseDatabase.getInstance().getReference("users");
+        database.orderByChild("userId").equalTo(user.getUserId()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onRefresh() {
-                // 어댑터 새로고침
-                adapter.notifyDataSetChanged();
-                // false로 호출 안하면 새로고침 아이콘이 사라지지 않는다.
-                swipeRefreshLayout.setRefreshing(false);
+            public void onDataChange(@NonNull DataSnapshot snapshots) {
+                for (DataSnapshot snapshot : snapshots.getChildren()) {
+                    user = snapshot.getValue(User.class);
+                }
+
+                // 업적 관련 반복문에 사용될 i 최대값
+                final int streakBASED = 3;
+                final int starBASED = 6;
+                final int chaSingleBASED = 8;
+                final int chaTeamBASED = 10;
+
+                // sqlite에서 읽어온 업적 정보 list
+                ArrayList<HoFAchievement> list = hofReadSqlite();
+
+                // 어댑터에 끼울 어레이리스트 data
+                ArrayList<HoFListItem> data = new ArrayList<>();
+                // 계정별 친구목록 aa,bb,cc, 형식 string "," split 후 갯수 = stars
+                int stars = (user.getStar().length() == 0) ? 0 : user.getStar().split(",").length;
+
+                // data 어레이리스트에 HoFListItem 객체 item을 list 길이만큼 반복하여 add
+                for (int i = 0; i < list.size(); i++) {
+                    int drawableId = getApplicationContext().getResources().getIdentifier(list.get(i).getAchDrawable(),
+                            "drawable", getApplicationContext().getPackageName());
+                    // 업적별 이미지 소스, 업적 타이틀, 업적 정보
+                    HoFListItem item = new HoFListItem(drawableId,
+                            list.get(i).getAchTitle(), list.get(i).getAchDetail());
+                    // 업적 분야별로 현재값/최대값 set
+                    if (i < streakBASED) {
+                        item.setNowMax(user.getMaxStreak(), list.get(i).getAchMax());
+                    } else if (i < starBASED) {
+                        item.setNowMax(stars, list.get(i).getAchMax());
+                    } else if (i < chaSingleBASED) {
+                        item.setNowMax(user.getChaPersonDone(), list.get(i).getAchMax());
+                    } else if (i < chaTeamBASED) {
+                        item.setNowMax(user.getChaGroupDone(), list.get(i).getAchMax());
+                    }
+                    // data 어레이리스트에 item 추가
+                    data.add(item);
+                }
+
+                // 완료, 진행 중 카운터
+                int countComplete = 0;
+                int countIng = 0;
+                for (int i = 0; i < data.size(); i++) {
+                    // data에 들어있는 item 하나씩 값을 가져와 각각 더해준다.
+                    countComplete += data.get(i).getAchComplete();
+                    countIng += data.get(i).getAchIng();
+                }
+
+                // 카운터를 setText
+                completeT.setText(String.valueOf(countComplete));
+                ingT.setText(String.valueOf(countIng));
+
+                // 어댑터를 껴준다.
+                HoFAdapter adapter = new HoFAdapter(data);
+                listView.setAdapter(adapter);
+
+                // 위로 스와이프 리프레시
+                SwipeRefreshLayout swipeRefreshLayout = findViewById(R.id.swiperefresh);
+                refresh(swipeRefreshLayout);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.d("FIREBASE", error.getMessage());
             }
         });
+    }
 
+    // 위로 스와이프 리프레시
+    private void refresh(SwipeRefreshLayout layout) {
+        layout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                fetchData();
+                // false로 호출 안하면 새로고침 아이콘이 사라지지 않는다.
+                layout.setRefreshing(false);
+            }
+        });
     }
 
     private ArrayList<HoFAchievement> hofReadSqlite() {
