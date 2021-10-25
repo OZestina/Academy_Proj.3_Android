@@ -3,9 +3,7 @@ package com.app.gitsin;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -151,7 +149,7 @@ public class ChaAdapter extends BaseAdapter {
 //                                Log.d("=================", user.toString());
                                 done.set(true);
                             }
-                        }, 500);  //end of handler
+                        }, 1000);  //end of handler
                     }
                 });
                 dialog.setNegativeButton("취소", new DialogInterface.OnClickListener() {
