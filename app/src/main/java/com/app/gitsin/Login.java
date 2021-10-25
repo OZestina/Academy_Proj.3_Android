@@ -40,6 +40,7 @@ public class Login extends AppCompatActivity {
     String userKey;
     User user;
     AtomicBoolean done = new AtomicBoolean(false);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,38 +73,50 @@ public class Login extends AppCompatActivity {
                             for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                                 user = snapshot1.getValue(User.class);
                                 userKey = snapshot1.getKey();
-                                if(userPw.equals(user.getUserPw())){
+                            }
+                            if(userPw.equals(user.getUserPw())){
 
-                                    //Crawling 내용 FireBase 저장
-                                    StreakCrawling sc = new StreakCrawling(user);
-                                    sc.start();
+                                //Crawling 내용 FireBase 저장
+                                StreakCrawling sc = new StreakCrawling(user);
+                                sc.start();
 
-                                    try {
-                                        sc.join();
-                                    } catch (InterruptedException e) {
-                                        e.printStackTrace();
-                                    }
-
-                                    user = sc.crawlingResult();
-    //                                Log.d("crawling값3",user.toString());
-
-                                    database.child(userKey).setValue(user);
-                                    done.set(true);
-                                    if (done.get()){
-                                        Log.d("=================", "done이 true값");
-                                    }
-
-                                    // SQLite3 추가 부분 (10.20 19:48)
-                                    SQLiteDatabase sqlDB = sqliteHelper.getWritableDatabase();
-                                    sqliteHelper.onCreate(sqlDB);
-                                    sqlDB.close();
-
-                                    intent = new Intent(Login.this, MainActivity.class);
-                                    intent.putExtra("info", user);
-                                    intent.putExtra("key", userKey);
-                                }else {
-                                    loginResult.setText("비밀번호가 틀렸습니다.");
+                                try {
+                                    sc.join();
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
                                 }
+
+                                user = sc.crawlingResult();
+                                //                                Log.d("crawling값3",user.toString());
+
+                                database.child(userKey).setValue(user);
+                                done.set(true);
+                                if (done.get()){
+                                    Log.d("=================", "done이 true값");
+                                }
+
+                                // SQLite3 추가 부분 (10.20 19:48)
+                                SQLiteDatabase sqlDB = sqliteHelper.getWritableDatabase();
+                                sqliteHelper.onCreate(sqlDB);
+                                sqlDB.close();
+
+                                intent = new Intent(Login.this, MainActivity.class);
+                                intent.putExtra("info", user);
+                                intent.putExtra("key", userKey);
+
+                                Handler handler = new Handler();
+                                handler.postDelayed(new Runnable() {
+                                    public void run() {
+                                        while (done.get() != true) { Log.d("","DONE값 없음");}
+                                        try {
+                                            startActivity(intent);
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                }, 1000);
+                            }else {
+                                loginResult.setText("비밀번호가 틀렸습니다.");
                             }
                         } catch (Exception e) {
                             loginResult.setText("가입되지 않은 아이디입니다.");
@@ -114,18 +127,6 @@ public class Login extends AppCompatActivity {
                         loginResult.setText("가입되지 않은 아이디입니다.");
                     }
                 });//end of addValueEventListener
-
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    public void run() {
-                        while (done.get() != true) { Log.d("","DONE값 없음");}
-                        try {
-                            startActivity(intent);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, 1000);
             }
         });
         signBtn.setOnClickListener(new View.OnClickListener() {
