@@ -150,17 +150,17 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="280dp" >
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="280dp">
 
                 <ListView
                     android:id="@+id/chaListView"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp" />
+                    android:layout_height="280dp" />
 
             </LinearLayout>
         </ScrollView>

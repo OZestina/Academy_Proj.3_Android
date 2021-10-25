@@ -42,7 +42,7 @@
                 <ListView
                     android:id="@+id/starListView"
                     android:layout_width="match_parent"
-                    android:layout_height="500dp"
+                    android:layout_height="480dp"
                     android:layout_marginTop="10dp"
                     android:divider="@color/lightgrey"
                     android:dividerHeight="1dp" />

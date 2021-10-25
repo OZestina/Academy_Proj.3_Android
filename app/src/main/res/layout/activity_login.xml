@@ -8,9 +8,31 @@
     tools:context=".Login">
 
     <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginTop="140dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            app:srcCompat="@drawable/gitsin_logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
+        <TextView
+            android:text="GitSin"
+            android:textStyle="bold|italic"
+            android:textSize="50sp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
         android:orientation="horizontal">
 
         <TextView
