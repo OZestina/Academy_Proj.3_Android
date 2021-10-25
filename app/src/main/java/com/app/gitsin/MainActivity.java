@@ -71,6 +71,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        ThemeUtil.applyTheme(ThemeUtil.darkLoad(getApplicationContext()));
+    }
+
+    @Override
     public void onClick(View view) {
         Class a = null;
         switch (view.getId()) {

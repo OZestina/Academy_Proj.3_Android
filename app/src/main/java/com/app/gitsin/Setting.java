@@ -100,17 +100,22 @@ public class Setting extends PreferenceActivity {
             //alarmNotification
         }
 
-
-
         //다크모드 설정
-        boolean dark = sp.getBoolean("darkMode", true);
-        if (dark) {
-            ThemeUtil.applyTheme("dark");
-            ThemeUtil.darkSave(getApplicationContext(), "dark", sp);
-        } else {
-            ThemeUtil.applyTheme("light");
-            ThemeUtil.darkSave(getApplicationContext(), "light", sp);
-        }
+        sp.registerOnSharedPreferenceChangeListener(new SharedPreferences.OnSharedPreferenceChangeListener() {
+            @Override
+            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+                if (key.equals("darkMode")) {
+                    boolean dark = sp.getBoolean("darkMode", true);
+                    if (dark) {
+                        ThemeUtil.applyTheme("dark");
+                        ThemeUtil.darkSave(getApplicationContext(), "dark", sp);
+                    } else {
+                        ThemeUtil.applyTheme("light");
+                        ThemeUtil.darkSave(getApplicationContext(), "light", sp);
+                    }
+                }
+            }
+        });
 
         //로그아웃
         Preference logOut = findPreference("logOut");
