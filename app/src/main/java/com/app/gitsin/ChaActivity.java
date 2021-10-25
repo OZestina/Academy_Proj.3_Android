@@ -65,7 +65,7 @@ public class ChaActivity extends AppCompatActivity implements View.OnClickListen
 //                Log.d("파베 어댑터", "데이터 가공 시작");
                 for (ChaDTO dto : chaDTOs) {
                     //chaPart format: (String) 1/10
-                    int participants = (dto.getParticipants() != null) ? dto.getParticipants().split(",").length : 0;
+                    int participants = (!dto.getParticipants().equals("")) ? dto.getParticipants().split(",").length : 0;
                     String chaPart = participants + "/" + dto.getLimit();
 
                     chaListItems.add(new ChaListItem(dto.getName(),dto.getCategory(),dto.getStartDate(),chaPart));

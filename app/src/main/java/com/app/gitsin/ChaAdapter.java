@@ -124,7 +124,7 @@ public class ChaAdapter extends BaseAdapter {
                             public void run() {
                                 //파이어베이스에 보낼 챌린지 DTO 업데이트
                                 String newPart = "";
-                                if (chaDTOs.get(POS).getParticipants() == null) {
+                                if (chaDTOs.get(POS).getParticipants().equals("")) {
                                     newPart = user.getUserId()+",";
                                 } else {
                                     newPart = chaDTOs.get(POS).getParticipants()+user.getUserId()+",";
