@@ -17,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class FindAdapter extends BaseAdapter {
     ArrayList<User> userList;
@@ -24,13 +25,16 @@ public class FindAdapter extends BaseAdapter {
     String key;
     String star;
     ArrayList<String> idList = new ArrayList<String>();
-    Boolean check = true;
+    Boolean[] check;
+
 
     public FindAdapter(ArrayList<User> userList, User user, String key) {
         this.userList = userList;
         my = user;
         this.key = key;
         star = user.getStar();
+        check = new Boolean[userList.size()];
+        Arrays.fill(check, true);
     }
 
     @Override
@@ -67,7 +71,7 @@ public class FindAdapter extends BaseAdapter {
                     if (my.getStar().contains(user.getUserId())){
                         //findBtn.setVisibility(View.INVISIBLE);
                         findBtn.setImageResource(android.R.drawable.btn_star_big_off);
-                        check=false;
+                        check[i]=false;
                     }
                 }
             }
@@ -79,7 +83,7 @@ public class FindAdapter extends BaseAdapter {
         findBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (check){
+                if (check[i]){
                     star = star + idList.get(i) + ",";
                     my.setStar(star);
                     database.child(key).setValue(my).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -87,7 +91,7 @@ public class FindAdapter extends BaseAdapter {
                         public void onSuccess(Void aVoid) {
                             //findBtn.setVisibility(View.INVISIBLE);
                             findBtn.setImageResource(android.R.drawable.btn_star_big_off);
-                            check=false;
+                            check[i]=false;
                         }
                     });
                 }else {
@@ -98,7 +102,7 @@ public class FindAdapter extends BaseAdapter {
                         public void onSuccess(Void aVoid) {
                             //findBtn.setVisibility(View.INVISIBLE);
                             findBtn.setImageResource(android.R.drawable.btn_star_big_on);
-                            check=true;
+                            check[i]=true;
                         }
                     });
                 }
