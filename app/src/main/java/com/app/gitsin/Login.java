@@ -35,6 +35,7 @@ public class Login extends AppCompatActivity {
     Button loginBtn, signBtn;
     EditText id, pw;
     TextView loginResult;
+    Intent intent;
 
     String userKey;
     User user;
@@ -67,43 +68,50 @@ public class Login extends AppCompatActivity {
                 database.orderByChild("userId").equalTo(userId).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot snapshot1 : snapshot.getChildren()) {
-                            user = snapshot1.getValue(User.class);
-                            userKey = snapshot1.getKey();
-                            if(userPw.equals(user.getUserPw())){
+                        try {
+                            for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                                user = snapshot1.getValue(User.class);
+                                userKey = snapshot1.getKey();
+                                if(userPw.equals(user.getUserPw())){
 
-                                //Crawling 내용 FireBase 저장
-                                StreakCrawling sc = new StreakCrawling(user);
-                                sc.start();
+                                    //Crawling 내용 FireBase 저장
+                                    StreakCrawling sc = new StreakCrawling(user);
+                                    sc.start();
 
-                                try {
-                                    sc.join();
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
+                                    try {
+                                        sc.join();
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                    user = sc.crawlingResult();
+    //                                Log.d("crawling값3",user.toString());
+
+                                    database.child(userKey).setValue(user);
+                                    done.set(true);
+                                    if (done.get()){
+                                        Log.d("=================", "done이 true값");
+                                    }
+
+                                    // SQLite3 추가 부분 (10.20 19:48)
+                                    SQLiteDatabase sqlDB = sqliteHelper.getWritableDatabase();
+                                    sqliteHelper.onCreate(sqlDB);
+                                    sqlDB.close();
+
+                                    intent = new Intent(Login.this, MainActivity.class);
+                                    intent.putExtra("info", user);
+                                    intent.putExtra("key", userKey);
+                                }else {
+                                    loginResult.setText("비밀번호가 틀렸습니다.");
                                 }
-
-                                user = sc.crawlingResult();
-//                                Log.d("crawling값3",user.toString());
-
-                                database.child(userKey).setValue(user);
-                                done.set(true);
-                                if (done.get()){
-                                    Log.d("=================", "done이 true값");
-                                }
-
-                                // SQLite3 추가 부분 (10.20 19:48)
-                                SQLiteDatabase sqlDB = sqliteHelper.getWritableDatabase();
-                                sqliteHelper.onCreate(sqlDB);
-                                sqlDB.close();
-
-                            }else {
-                                loginResult.setText("비밀번호가 틀렸습니다.");
                             }
+                        } catch (Exception e) {
+                            loginResult.setText("가입되지 않은 아이디입니다.");
                         }
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-                        Log.d("파이어베이스>> ", userId + ": userId 없음");
+                        loginResult.setText("가입되지 않은 아이디입니다.");
                     }
                 });//end of addValueEventListener
 
@@ -111,10 +119,11 @@ public class Login extends AppCompatActivity {
                 handler.postDelayed(new Runnable() {
                     public void run() {
                         while (done.get() != true) { Log.d("","DONE값 없음");}
-                        Intent intent = new Intent(Login.this, MainActivity.class);
-                        intent.putExtra("info", user);
-                        intent.putExtra("key", userKey);
-                        startActivity(intent);
+                        try {
+                            startActivity(intent);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                 }, 1000);
             }
