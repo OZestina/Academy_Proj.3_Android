@@ -147,7 +147,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="530dp">
                     <TextView
-                        android:text="친구수 랭킹"
+                        android:text="즐겨찾기 랭킹"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:paddingTop="20dp"
@@ -173,7 +173,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="530dp">
                     <TextView
-                        android:text="챌린지 개인전 참가 랭킹"
+                        android:text="챌린지 개인전 랭킹"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:paddingTop="20dp"
@@ -199,7 +199,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="530dp">
                     <TextView
-                        android:text="챌린지 단체전 참가 랭킹"
+                        android:text="챌린지 단체전 랭킹"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:paddingTop="20dp"
