@@ -19,7 +19,7 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
     TextView idView, signDateView, gitIdView, todayCheckMsg, streakCheckMsg;
     User user, user2;
     String key;
-    ImageView todayCheck;
+    ImageView todayCheck, no2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +42,7 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         todayCheck = findViewById(R.id.todayCheck2);
         todayCheckMsg = findViewById(R.id.todayCheckMsg2);
         streakCheckMsg = findViewById(R.id.streakCheckMsg2);
+        no2 = findViewById(R.id.no2);
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
         b3.setOnClickListener(this);
@@ -54,6 +55,7 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         if (user2.getTodayCount()==1){
             todayCheck.setImageResource(android.R.drawable.presence_online);
             todayCheckMsg.setVisibility(View.INVISIBLE);
+            no2.setImageResource(R.drawable.main_04);
         }
         streakCheckMsg.setText(user2.getStreakToday()+"일 연속 업로드중입니다.");
 

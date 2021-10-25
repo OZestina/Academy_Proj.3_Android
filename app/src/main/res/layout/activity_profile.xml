@@ -107,6 +107,13 @@
                     android:layout_margin="10dp"
                     android:text="0일 연속 업로드하셨습니다."
                     android:textSize="18sp" />
+                <ImageView
+                    android:id="@+id/no2"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    app:srcCompat="@drawable/main_03" />
             </LinearLayout>
         </ScrollView>
 
