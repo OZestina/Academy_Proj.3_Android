@@ -11,7 +11,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_margin="10dp"
-        android:layout_height="600dp">
+        android:layout_height="580dp">
 
         <TextView
             android:text="업적"
@@ -104,39 +104,58 @@
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/lightgrey"
+        android:paddingTop="1dp"
+        android:orientation="horizontal">
+
         <ImageButton
             android:id="@+id/menu2Pro"
+            android:background="@drawable/button_border"
+            app:srcCompat="@drawable/button_01b"
+            android:scaleType="fitCenter"
+            android:padding="15dp"
             android:layout_width="82dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_launcher_foreground"
-            tools:ignore="VectorDrawableCompat" />
+            android:layout_height="60dp"/>
+
         <ImageButton
             android:id="@+id/menu2Hof"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/button_border"
+            app:srcCompat="@drawable/button_02"
+            android:scaleType="fitCenter"
+            android:padding="15dp"
             android:layout_width="82dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_launcher_foreground"
-            tools:ignore="VectorDrawableCompat" />
+            android:layout_height="60dp"/>
+
         <ImageButton
             android:id="@+id/menu2Challenge"
+            android:background="@drawable/button_border"
+            app:srcCompat="@drawable/button_03b"
+            android:scaleType="fitCenter"
+            android:padding="12dp"
             android:layout_width="82dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_launcher_foreground"
-            tools:ignore="VectorDrawableCompat" />
+            android:layout_height="60dp"/>
+
         <ImageButton
             android:id="@+id/menu2Stats"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/button_border"
+            app:srcCompat="@drawable/button_04b"
+            android:scaleType="fitCenter"
+            android:padding="15dp"
             android:layout_width="82dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_launcher_foreground"
-            tools:ignore="VectorDrawableCompat" />
+            android:layout_height="60dp"/>
+
         <ImageButton
             android:id="@+id/menu2Friends"
+            android:background="@drawable/button_border"
+            app:srcCompat="@drawable/button_05b"
+            android:scaleType="fitCenter"
+            android:padding="15dp"
             android:layout_width="82dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_launcher_foreground"
-            tools:ignore="VectorDrawableCompat" />
+            android:layout_height="60dp"/>
     </LinearLayout>
 
 </LinearLayout>

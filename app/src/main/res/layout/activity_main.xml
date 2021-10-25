@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="580dp"
         android:layout_margin="10dp"
         android:orientation="vertical">
 
@@ -132,42 +132,56 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/lightgrey"
+        android:paddingTop="1dp"
         android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/menu1Pro"
+            android:background="@drawable/button_border"
+            app:srcCompat="@drawable/button_01"
+            android:scaleType="fitCenter"
+            android:padding="15dp"
             android:layout_width="82dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_launcher_foreground"
-            tools:ignore="VectorDrawableCompat" />
+            android:layout_height="60dp"/>
 
         <ImageButton
             android:id="@+id/menu1Hof"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/button_border"
+            app:srcCompat="@drawable/button_02b"
+            android:scaleType="fitCenter"
+            android:padding="15dp"
             android:layout_width="82dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_launcher_foreground"
-            tools:ignore="VectorDrawableCompat" />
+            android:layout_height="60dp"/>
 
         <ImageButton
             android:id="@+id/menu1Challenge"
+            android:background="@drawable/button_border"
+            app:srcCompat="@drawable/button_03b"
+            android:scaleType="fitCenter"
+            android:padding="12dp"
             android:layout_width="82dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_launcher_foreground"
-            tools:ignore="VectorDrawableCompat" />
+            android:layout_height="60dp"/>
 
         <ImageButton
             android:id="@+id/menu1Stats"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/button_border"
+            app:srcCompat="@drawable/button_04b"
+            android:scaleType="fitCenter"
+            android:padding="15dp"
             android:layout_width="82dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_launcher_foreground"
-            tools:ignore="VectorDrawableCompat" />
+            android:layout_height="60dp"/>
 
         <ImageButton
             android:id="@+id/menu1Friends"
+            android:background="@drawable/button_border"
+            app:srcCompat="@drawable/button_05b"
+            android:scaleType="fitCenter"
+            android:padding="15dp"
             android:layout_width="82dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_launcher_foreground"
-            tools:ignore="VectorDrawableCompat" />
+            android:layout_height="60dp"/>
     </LinearLayout>
 
 </LinearLayout>
