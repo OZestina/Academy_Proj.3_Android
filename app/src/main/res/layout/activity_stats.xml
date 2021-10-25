@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,21 +15,216 @@
         android:layout_height="600dp">
 
         <TextView
-            android:text="통계"
+            android:text="순위표"
             android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-        <ScrollView
-            android:layout_width="match_parent"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginVertical="10dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginHorizontal="5dp"
+            android:gravity="center"
+            android:layout_width="120dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="총 유저수"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/stats_total1"
+                android:text="0명"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginHorizontal="5dp"
+            android:gravity="center"
+            android:layout_width="120dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="평균 연속 모내기"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/stats_total2"
+                android:text="0일"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginHorizontal="5dp"
+            android:gravity="center"
+            android:layout_width="120dp"
             android:layout_height="match_parent">
             <TextView
-                android:text="이곳에 내용을 넣으세요."
+                android:text="평균 친구수"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/stats_total3"
+                android:text="0명"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TabHost
+        android:id="@+id/stats_tabHost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:divider="@color/lightgrey"
+                android:showDividers="middle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-        </ScrollView>
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/stats_view1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="530dp">
+                    <TextView
+                        android:text="연속 모내기 랭킹"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:paddingTop="20dp"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/stats_swipe1"
+                        android:layout_width="match_parent"
+                        android:layout_height="380dp">
+                    <ListView
+                        android:id="@+id/stats_list1"
+                        android:paddingVertical="10dp"
+                        android:overScrollMode="never"
+                        android:layout_width="match_parent"
+                        android:layout_height="380dp"/>
+                    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/stats_view2"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="530dp">
+                    <TextView
+                        android:text="친구수 랭킹"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:paddingTop="20dp"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/stats_swipe2"
+                        android:layout_width="match_parent"
+                        android:layout_height="380dp">
+                    <ListView
+                        android:id="@+id/stats_list2"
+                        android:paddingVertical="10dp"
+                        android:overScrollMode="never"
+                        android:layout_width="match_parent"
+                        android:layout_height="380dp"/>
+                    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/stats_view3"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="530dp">
+                    <TextView
+                        android:text="챌린지 개인전 참가 랭킹"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:paddingTop="20dp"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/stats_swipe3"
+                        android:layout_width="match_parent"
+                        android:layout_height="380dp">
+                    <ListView
+                        android:id="@+id/stats_list3"
+                        android:paddingVertical="10dp"
+                        android:overScrollMode="never"
+                        android:layout_width="match_parent"
+                        android:layout_height="380dp"/>
+                    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/stats_view4"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="530dp">
+                    <TextView
+                        android:text="챌린지 단체전 참가 랭킹"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:paddingTop="20dp"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/stats_swipe4"
+                        android:layout_width="match_parent"
+                        android:layout_height="380dp">
+                    <ListView
+                        android:id="@+id/stats_list4"
+                        android:paddingVertical="10dp"
+                        android:overScrollMode="never"
+                        android:layout_width="match_parent"
+                        android:layout_height="380dp"/>
+                    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+
+
 
     </LinearLayout>
 

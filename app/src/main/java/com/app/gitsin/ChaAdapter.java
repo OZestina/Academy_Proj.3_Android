@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 
 public class ChaAdapter extends BaseAdapter {
@@ -96,6 +96,7 @@ public class ChaAdapter extends BaseAdapter {
         chaBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AtomicBoolean done = new AtomicBoolean(false);
                 //Toast.makeText(CONTEXT, POS+"번 버튼 클릭", Toast.LENGTH_SHORT).show();
                 AlertDialog.Builder dialog = new AlertDialog.Builder(CONTEXT);
                 dialog.setTitle(chaList.get(POS).getChaName()+"에 참여하시겠어요?");
@@ -123,16 +124,16 @@ public class ChaAdapter extends BaseAdapter {
                             public void run() {
                                 //파이어베이스에 보낼 챌린지 DTO 업데이트
                                 String newPart = "";
-                                if (chaDTOs.get(POS).getParticipants() == null) {
+                                if (chaDTOs.get(POS).getParticipants().equals("")) {
                                     newPart = user.getUserId()+",";
                                 } else {
                                     newPart = chaDTOs.get(POS).getParticipants()+user.getUserId()+",";
                                 }
                                 chaDTOs.get(POS).setParticipants(newPart);
 
-                                Log.d("=================", chaDTOs.get(POS).toString());
+//                                Log.d("=================", chaDTOs.get(POS).toString());
 
-                                //챌린지 DTO 파이어베이스로
+                                //챌린지 DTO 파이어베이스로 업데이트
                                 ChaDTO challenge = chaDTOs.get(POS);
                                 database.child(chaId).setValue(challenge);
 
@@ -145,9 +146,10 @@ public class ChaAdapter extends BaseAdapter {
                                     user.setChaGroupDone(user.getChaGroupDone()+1);
                                 }
                                 database2.child(key).setValue(user);
-                                Log.d("=================", user.toString());
+//                                Log.d("=================", user.toString());
+                                done.set(true);
                             }
-                        }, 1000);  //
+                        }, 1000);  //end of handler
                     }
                 });
                 dialog.setNegativeButton("취소", new DialogInterface.OnClickListener() {
