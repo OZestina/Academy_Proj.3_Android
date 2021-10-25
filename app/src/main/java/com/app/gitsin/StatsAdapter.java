@@ -29,6 +29,7 @@ public class StatsAdapter extends BaseAdapter {
     public StatsAdapter(ArrayList<Map> list, String userId) {
         thisList = list;
         id = userId;
+        Log.d("FIREBASE", "userId = " + id);
         String subStr = (String) list.get(0).get("what");
         this.max = Integer.parseInt(subStr.substring(0, subStr.length() - 1));
     }
@@ -67,7 +68,7 @@ public class StatsAdapter extends BaseAdapter {
         TextView statsCount = (TextView) convertView.findViewById(R.id.stats_text2);
 
         // Data set(list) 에서 position에 위치한 데이터 참조 획득
-        Map<String, String> map = thisList.get(position);
+        Map<String, String> map = thisList.get(pos);
 
         String userId = map.get("userId");
         String what = map.get("what");
@@ -77,9 +78,13 @@ public class StatsAdapter extends BaseAdapter {
         // 아이템 내 각 위젯에 데이터 반영
         statsImage.setImageResource(0);
         if (position < 3) {
-            statsImage.setImageResource(drawables[position]);
+            statsImage.setImageResource(drawables[pos]);
         }
-        statsId.setText(userId);
+        if (userId.equals(id)) {
+            statsId.setText(userId + " (나)");
+        } else {
+            statsId.setText(userId);
+        }
         ValueAnimator animator = ValueAnimator.ofInt(0, size);
         animator.setDuration(1000);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -90,11 +95,6 @@ public class StatsAdapter extends BaseAdapter {
         });
         animator.start();
         statsCount.setText(what);
-
-        if (userId.equals(id)) {
-            convertView.setBackgroundResource(R.color.lightgrey);
-            statsId.setText(userId + " (나)");
-        }
 
         convertView.setOnTouchListener(new View.OnTouchListener() {
             @Override
