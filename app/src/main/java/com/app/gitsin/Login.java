@@ -77,7 +77,7 @@ public class Login extends AppCompatActivity {
                             if(userPw.equals(user.getUserPw())){
 
                                 //Crawling 내용 FireBase 저장
-                                StreakCrawling sc = new StreakCrawling(user);
+                                StreakCrawling sc = new StreakCrawling(user, Login.this);
                                 sc.start();
 
                                 try {
@@ -87,7 +87,7 @@ public class Login extends AppCompatActivity {
                                 }
 
                                 user = sc.crawlingResult();
-                                //                                Log.d("crawling값3",user.toString());
+                                // Log.d("crawling값3",user.toString());
 
                                 database.child(userKey).setValue(user);
                                 done.set(true);
@@ -114,7 +114,7 @@ public class Login extends AppCompatActivity {
                                             e.printStackTrace();
                                         }
                                     }
-                                }, 1000);
+                                }, 1500);
                             }else {
                                 loginResult.setText("비밀번호가 틀렸습니다.");
                             }

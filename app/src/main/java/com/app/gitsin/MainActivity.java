@@ -3,6 +3,7 @@ package com.app.gitsin;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -53,6 +54,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         idView.setText(user.getUserId());
         gitIdView.setText(user.getGithubId());
+        if (user.getGithubId().equals("깃허브 아이디를 다시 등록해주세요")) {
+            gitIdView.setTextColor(Color.RED);
+        } else {
+            gitIdView.setTextColor(idView.getTextColors().getDefaultColor());
+        }
         signDateView.setText(user.getSignDate() + "일에 가입");
         if (user.getTodayCount()==1){
             todayCheck.setImageResource(android.R.drawable.presence_online);

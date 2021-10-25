@@ -51,6 +51,11 @@ public class Setting extends PreferenceActivity {
         //깃허브 계정 미리보기
         Preference a = findPreference("gitHubAccount");
         a.setSummary(user.getGithubId());
+        if (user.getGithubId().equals("깃허브 아이디를 다시 등록해주세요")) {
+            a.setIcon(R.drawable.check);
+        } else {
+            a.setIcon(null);
+        }
 
         //깃허브 계정 수정
         Preference githubChange = findPreference("gitHubAccount");

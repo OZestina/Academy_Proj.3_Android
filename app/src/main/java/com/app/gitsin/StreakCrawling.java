@@ -1,7 +1,15 @@
 package com.app.gitsin;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.google.android.gms.common.util.concurrent.HandlerExecutor;
+
+import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -24,9 +32,10 @@ public class StreakCrawling extends Thread {
     private int todayCount;
     //User DTO 저장용 변수
     private User user;
+    private Context context;
 
-    public StreakCrawling (User user) {
-        this.user = user;
+    public StreakCrawling (User user, Context context) {
+        this.user = user; this.context = context;
     }
 
     public void run() {
@@ -65,6 +74,15 @@ public class StreakCrawling extends Thread {
             user.setStreakToday(streakToday);
             user.setTodayCount(todayCount);
 
+        } catch (HttpStatusException e) {
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(context, "존재하지 않는 깃허브 아이디입니다.", Toast.LENGTH_SHORT).show();
+                    user.setGithubId("깃허브 아이디를 다시 등록해주세요");
+                }
+            }, 0);
         } catch (IOException e) {
             e.printStackTrace();
         }
