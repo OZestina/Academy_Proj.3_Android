@@ -2,8 +2,6 @@ package com.app.gitsin;
 
 import android.app.AlarmManager;
 import android.app.AlertDialog;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
@@ -11,9 +9,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -34,6 +32,10 @@ public class Setting extends PreferenceActivity {
     SharedPreferences sp;
     DatabaseReference database;
     View dialogView;
+    AlarmManager alarmManager;
+    PendingIntent pendingIntent;
+    Calendar calendar;
+    final long REPEAT = 1000 * 60 * 60 * 24;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,16 +97,72 @@ public class Setting extends PreferenceActivity {
         });
 
         //알람설정
-        boolean alarm = sp.getBoolean("alarm", true);
-        if (alarm) {
-            //alarmNotification
-        }
-
-        //다크모드 설정
         sp.registerOnSharedPreferenceChangeListener(new SharedPreferences.OnSharedPreferenceChangeListener() {
             @Override
             public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-                if (key.equals("darkMode")) {
+
+                if (key.equals("alarm")) {
+                    //알람 on <-> off (알람 등록 <-> 삭제)
+                    boolean alarmYes = sp.getBoolean("alarm", true);
+                    if(alarmYes) {
+                        //알람 생성
+                        alarmManager = (AlarmManager) (Setting.this).getSystemService(Context.ALARM_SERVICE);
+                        //알람 조건 충족 시 리시버로 전달될 intent
+                        Intent intent1 = new Intent(Setting.this, AlarmReceiver.class);
+                        pendingIntent = PendingIntent.getBroadcast(Setting.this,
+                                AlarmReceiver.NOTIFICATION_ID, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
+                        //알람 시간 확인
+                        int time = setTime(sp.getString("alarmTime", "9am"));
+                        Log.d("====================",time+"시에 알람 설정");
+
+                        //알람 시간 설정
+                        calendar = Calendar.getInstance();
+                        calendar.setTimeInMillis(System.currentTimeMillis());
+                        calendar.set(Calendar.HOUR_OF_DAY, time);
+
+                        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                                REPEAT, pendingIntent);
+                        Log.d("====================",calendar.getTimeInMillis()+"시에 알람 설정");
+                        ComponentName receiver = new ComponentName(Setting.this, AlarmReceiver.class);
+                        PackageManager pm = (Setting.this).getPackageManager();
+
+                        pm.setComponentEnabledSetting(receiver,
+                                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                                PackageManager.DONT_KILL_APP);
+
+                    } else {
+                        //알람 해제
+                        if (alarmManager != null) {
+                            alarmManager.cancel(pendingIntent);
+                        }
+                        Log.d("====================","알람 해제");
+                        ComponentName receiver = new ComponentName(Setting.this, AlarmReceiver.class);
+                        PackageManager pm = (Setting.this).getPackageManager();
+                        pm.setComponentEnabledSetting(receiver,
+                                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                                PackageManager.DONT_KILL_APP);
+                    }
+
+                } else if (key.equals("alarmTime")) {
+                    // (알람 on 상태에서) 알람 시간 변경 시
+                    int time = setTime(sp.getString("alarmTime", "9am"));
+                    Log.d("====================",time+"시에 알람 설정");
+
+                    calendar = Calendar.getInstance();
+                    calendar.setTimeInMillis(System.currentTimeMillis());
+                    calendar.set(Calendar.HOUR_OF_DAY, time);
+
+                    alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                            REPEAT, pendingIntent);
+
+                    ComponentName receiver = new ComponentName(Setting.this, AlarmReceiver.class);
+                    PackageManager pm = (Setting.this).getPackageManager();
+
+                    pm.setComponentEnabledSetting(receiver,
+                            PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                            PackageManager.DONT_KILL_APP);
+
+                } else if (key.equals("darkMode")) {
                     boolean dark = sp.getBoolean("darkMode", true);
                     if (dark) {
                         ThemeUtil.applyTheme("dark");
@@ -146,25 +204,19 @@ public class Setting extends PreferenceActivity {
 
     } // end of onCreate
 
-    public void alarmNotification(Calendar calendar, boolean bool) {
-
-        Intent alarmIntent = new Intent(this, AlarmReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-
-        if (bool) {
-            if (alarmManager != null) {
-
-                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                        AlarmManager.INTERVAL_DAY, pendingIntent);
-
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-                }
-            }
-        } else {
-
+    public int setTime(String time) {
+        int alarmTime = 0;
+        switch (time) {
+            case "am9": alarmTime = 9; break;
+            case "am11": alarmTime = 11; break;
+            case "pm1": alarmTime = 13; break;
+            case "pm3": alarmTime = 15; break;
+            case "pm5": alarmTime = 17; break;
+            case "pm7": alarmTime = 19; break;
+            case "pm9": alarmTime = 21; break;
+            case "pm11": alarmTime = 23; break;
         }
+        return alarmTime;
     }
 
 }
