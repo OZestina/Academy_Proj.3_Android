@@ -66,7 +66,7 @@ public class Login extends AppCompatActivity {
                 final String userId = id.getText().toString();
                 final String userPw = pw.getText().toString();
 
-                database.orderByChild("userId").equalTo(userId).addValueEventListener(new ValueEventListener() {
+                database.orderByChild("userId").equalTo(userId).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         try {
