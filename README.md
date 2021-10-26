@@ -22,8 +22,8 @@
 6. GitHub 계정 정보, 알람 및 다크모드를 설정할 수 있는 설정 페이지 구현 
 
 **애플리케이션 구현 화면**
-<img width="100%" src="https://user-images.githubusercontent.com/72402916/138816309-fbeca859-f223-4f11-a974-d09063aceea3.png"/>
-<img width="100%" src="https://user-images.githubusercontent.com/72402916/138816311-60d67f9c-cf99-4842-92f8-93c65292105d.png"/>
+<img width="50%" src="https://user-images.githubusercontent.com/72402916/138816309-fbeca859-f223-4f11-a974-d09063aceea3.png"/>
+<img width="50%" src="https://user-images.githubusercontent.com/72402916/138816311-60d67f9c-cf99-4842-92f8-93c65292105d.png"/>
 
 **메뉴 및 담당**
 
