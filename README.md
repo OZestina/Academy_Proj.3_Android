@@ -7,10 +7,10 @@
 게이미피케이션 적용 및 크롤링을 이용한 자바 기반 GitHub 데일리 리마인드 소셜 애플리케이션 구현 (안드로이드 애플리케이션) 
 
 **사용 언어 & 기술 & 도구**
-> Language: Java, Jsoup, JSON
-> IDE: Android Studio
-> DB: Sqlite, Firebase
-> 외부 라이브러리: Gradle, Maven
+> Language: Java, Jsoup, JSON  
+> IDE: Android Studio  
+> DB: Sqlite, Firebase  
+> 외부 라이브러리: Gradle, Maven  
 > 협업툴: Github (CI/CD), Notion
 
 **애플리케이션 구현 화면**  
