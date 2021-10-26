@@ -1,32 +1,31 @@
 # Academy_project_3
-깃신(Gitsin)_Github daily challenge support application  
-
-
-https://cafe.daum.net/bigmega/pe7j/5463  
-https://www.notion.so/90895e7c82614675ba1aab7de42c93c3  
+깃신(Gitsin)_GitHub daily challenge support application  
 
 
 **앱 설명**
 > 깃신 (Gitsin)
-게이미피케이션을 적용한 깃허브 contribution 챌린지 푸시 알람 및 소셜 애플리케이션 (깃허브 로그인 연동 및 크롤링 이용)  
-레퍼런스: 듀오링고(Duolingo)
+게이미피케이션 적용 및 크롤링을 이용한 자바 기반 GitHub 데일리 리마인드 소셜 애플리케이션 구현 (안드로이드 애플리케이션) 
 
 **사용 언어 & 기술 & 도구**
-> Java
-> Sqlite, Firebase
-> Android Studio
-> Github, Notion
+> Language: Java, Jsoup, JSON
+> IDE: Android Studio
+> DB: Sqlite, Firebase
+> 외부 라이브러리: Gradle, Maven
+> 협업툴: Github (CI/CD), Notion
 
 **기획내용**
-> 모내기 챌린지 (1일 1깃허브커밋 챌린지)  
-> 깃헙 데일리 리마인드: 원하는 시간에 알림(배너, 푸시 등)으로 리마인드 당해보세요!
-> 소셜기능: 팔로우
+1. 매일의 contribution 여부와 지속 contribution sterak 일수를 확인할 수 있는 회원 프로필 페이지 제공 (GitHub 프로필 크롤링)
+2. GitHub 및 깃신 활동 내용 관련 업적 달성도 확인이 가능한 업적 페이지 구현
+3. 유저간 contribution streak 유지 내용으로 경쟁이 가능한 챌린지 페이지 제공
+4. 가입한 유저의 GitHub 및 깃신 활동을 비교할 수 있는 통계 페이지 제공 
+5. 깃신 유저 리스트 확인 및 소셜(팔로우) 기능을 제공하는 친구 페이지 구현
+6. GitHub 계정 정보, 알람 및 다크모드를 설정할 수 있는 설정 페이지 구현 
 
 **메뉴 및 담당**
 
-0. (최초실행 시) 로그인 페이지 (깃헙연동 로그인)     - junkyu92
+0. [함께] GitHub 프로필 크롤링
 
-1. 메인-회원 프로필                                - junkyu92
+1. [junkyu92] 회원
 - 오늘 했는 지 여부 
 - 현재 모내기 지속일수
 - 현재 진행중인 챌린지명
@@ -62,45 +61,3 @@ https://www.notion.so/90895e7c82614675ba1aab7de42c93c3
 - 팔로우 리스트 확인 & 팔로우 삭제
 - 팔로워 리스트 확인
 
- 
- 
-**하기내용 추후 정리 예정!**
-
-[필요 기능]
-1) 크롤링 자바클래스 - 모내기 크롤링               - [together!]
-
-2) 챌린지                                                    - ozestina
-
-- 길드전) 일정 기간 내 가장 많은 contributions 길드 우승
-
-- 개인전) 최후의 1인
-- 솔플) 7일 챌린지 / 30일 챌린지
-
-- pvp) 1:1 
-
-3) 업적:                                                      - hangnew
-- 하루에 n개 올리기(1개, 5개, 10개)
-- n일 연속 모내기 (3일, 7일, 14일, 30일, 100일, 365일)
-- 친구n명 팔로우 (1명, 3명)
-- 팔로워 n명 달성 (1명, 3명, 10명, 100명)
-- MBTI등록
-
-- 길드
-- 언어사용
-native(1개언어 100개 커밋)
-bilingual(2개 언어 각각 100개씩 커밋)
-multi(n개 언어 100개 이상씩 커밋),
-- (챌린지) 최후의 1인, 
-- (광고받을 시) 광고 클릭 높은 열혈유저
-
- 
-
- 
-
-3. DB가 필요한 부분
-1) 유저: 아이디, 패스워드, 팔로워, 팔로잉, 달력, 최대 streak, 현재까지 총 commit량, 업적달성(json), 광고클릭
-2) 업적: idx, 내용 → (폰에 저장)
-
-3) 챌린지: idx, 참여자, 시작일, 조건
-
-4) 길드: idx, 길드명, 길드장, 길드원, 생성일
